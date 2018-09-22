@@ -1,0 +1,55 @@
+!! ~/.Xdefaults
+!! run `xrdb .Xdefaults` to enable the settings
+
+
+URxvt.depth:32
+URxvt.background:rgba:0000/0000/0000/cccc
+URxvt.foreground:#FFFFFF
+URxvt.termName: screen-256color
+!URxvt.title: Beerminal
+
+*color0:   #000000
+*color1:   #e40000
+*color2:   #8dc627
+*color3:   #e0ca00
+*color4:   #73a1cd
+*color5:   #ad8fb1
+*color6:   #27c5c6
+*color7:   #e8ebe6
+*color8:   #939592
+*color9:   #f76666
+*color10:  #bcf173
+*color11:  #fef48e
+*color12:  #abcae6
+*color13:  #d2b4cf
+*color14:  #73f1f1
+*color15:  #f7f7f6
+
+URxvt.scrollBar:false
+URxvt.secondaryScroll: true # enable Shift-PageUp/Down in screen
+URxvt.saveLines:10000
+
+
+!URxvt.letterSpace: -3
+URxvt.font:xft:bitstream vera sans mono:pixelsize=10:antialias=true
+!URxvt.boldFont:xft:bitstream vera sans mono:bold:size=10:antialias=true
+
+URxvt.preeditType:Root
+URxvt.imLocale:en_US.UTF-8
+urxvt.imFont:fixed
+URxvt.inputMethod:ibus
+
+URxvt.urgentOnBell: True
+URxvt.buffered: true
+URxvt.cursorColor: green
+
+!! clickable url
+!URxvt.perl-ext-common:  default,matcher
+!URxvt.urlLauncher:      urxvt-url.sh
+!URxvt.matcher.button:   3
+
+Xlf.antialias:true
+Xlf.hinting:true
+Xlf.hintstyle:hintslight
+Xlf.lcdfilter:lcddefault
+Xlf.rgba:rgb
