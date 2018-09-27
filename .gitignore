@@ -1,5 +1,10 @@
-*
+.config/VirtualBox/*
+.config/google-chrome/*
+.ssh*
+/*
 !.gitignore
 !.bashrc
-!.vim
-.Pictures/wallpapers/*
+!.vim/*
+!.Pictures/wallpapers/*
+!.config/*
+
