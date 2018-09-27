@@ -89,6 +89,6 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 eval $(thefuck --alias) 
 # --enable-experimental-instant-mode)
 
-cows=(beavis.zen bud-frogs bunny cheese cower daemon default dragon dragon-and-cow elephant elephant-in-snake eyes flaming-sheep ghostbusters hellokitty kiss kitty koala kosh luke-koala milk moofasa moose  ren satanic sheep skeleton small stegosaurus stimpy supermilker three-eyes turkey turtle tux vader vader-koala www)
+cows=(beavis.zen bud-frogs bunny cheese cower daemon default dragon dragon-and-cow elephant elephant-in-snake eyes flaming-sheep ghostbusters hellokitty kiss kitty koala kosh luke-koala milk moofasa moose  ren satanic sheep skeleton stegosaurus stimpy supermilker three-eyes turkey turtle tux vader vader-koala www)
 declare -i MAX=${#cows[@]}
 fortune | cowsay -f ${cows[$[ ( $RANDOM % $MAX )  + 1 ]]} | lolcat
