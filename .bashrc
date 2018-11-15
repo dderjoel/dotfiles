@@ -57,11 +57,12 @@ fi
 #remap the caps-lock to the escape button 
 setxkbmap -option caps:escape
 #export PS1="\`if [ \$? = 0 ]; then echo \[\e[33m\]^_^\[\e[0m\]; else echo \[\e[31m\]O_O\[\e[0m\]; fi\`[\u@\h:\w]\\$ "
+export PS1=" $ "
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-eval $(thefuck --alias) 
+#eval $(thefuck --alias) 
 # --enable-experimental-instant-mode)
 
 cows=(beavis.zen bud-frogs bunny cheese cower daemon default dragon dragon-and-cow elephant elephant-in-snake eyes flaming-sheep ghostbusters hellokitty kiss kitty koala kosh luke-koala meow milk moofasa moose mutilated ren satanic sheep skeleton small sodomized stegosaurus stimpy supermilker three-eyes turkey turtle tux vader vader-koala www)
 declare -i MAX=${#cows[@]}
-fortune | cowsay -f ${cows[$[ ( $RANDOM % $MAX )  + 1 ]]} | lolcat
+fortune | cowsay -f ${cows[$[ ( $RANDOM % $MAX ) + 1 ]]} | lolcat
 
