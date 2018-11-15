@@ -186,6 +186,11 @@ exec --no-startup-id xautolock -locker "~/.config/i3/lock_screen.sh" -time 10 -d
 bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
 bindsym $mod+Print exec gnome-screenshot -i
 
+#settings for screenkeys:
+bindsym $mod+Shift+s exec screenkey
+bindsym $mod+Shift+Mod1+s exec pkill screenkey 
+exec screenkey
+
 #settings for the audio-controls
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -212,3 +217,6 @@ exec_always sh ~/.screenlayout/home4Mon.sh
 
 #for having urxvt to load correct customizations
 exec_always xrdb ~/.Xresources
+
+#set the us layout to the keyboard
+exec_always setxkbmap -layout us -variant altgr-intl
