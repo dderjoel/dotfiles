@@ -15,3 +15,5 @@ alias gs="git status"
 alias gd="git diff"
 alias gp="git push"
 
+source ./.company-specific-aliases.sh
+
