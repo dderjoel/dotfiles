@@ -5,8 +5,8 @@ set number relativenumber
 "enable syntax highlighting
 syntax on
 
-"enable indentation based on current line when pressing enter
-set smartindent
+"enable indentation based on plugins in ~/.vim/indent/*
+filetype plugin indent on
 
 "set color scheme
 colo desert
@@ -15,6 +15,6 @@ colo desert
 :command! -bar -bang Q quit<bang>
 
 "enable the spellchecker
-set spell
+set nospell
 "save some mappings for the thesis:
 :let @Q='A\begin{lstlisting}^M^M\end{lstlisting}^[kA'
