@@ -1,4 +1,11 @@
-# some more ls aliases
+alias vi=vim
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias ls='ls --color=auto'
+alias l="ll"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
