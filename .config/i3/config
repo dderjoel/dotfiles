@@ -1,4 +1,4 @@
-#set the mod key
+#Set the mod key
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -78,50 +78,45 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+#to enable quick switch between revent workspaces
+bindsym Mod1+Tab workspace next
+bindsym Mod1+Shift+Tab workspace prev
+
+
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1: Terminal "
-set $workspace2 "2: Chrome "
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
-set $workspace10 "10: Music "
 
 #default programs to certain workspaces: 
 #run xprop and click w/ mouse on certain window, copy second value of WM_class and fill as below
-assign [class="URxvt"] $workspace1
-assign [class="Google-chrome"] $workspace2
-for_window [class="Spotify"] move to workspace $workspace10
+#assign [class="URxvt"] 1
+#assign [class="Google-chrome"] 2
+#for_window [class="Spotify"] move to workspace number 10
 
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -159,7 +154,7 @@ bindsym $mod+r mode "resize"
 # window colors
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused         $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
@@ -193,9 +188,9 @@ exec screenkey
 
 #settings for the audio-controls
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1   toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -209,7 +204,10 @@ bindsym XF86AudioPrev exec playerctl previous
 #Wallpaper
 exec_always feh --bg-scale ~/Pictures/wallpapers
 
-#for tranparency (rofi)
+#set the us layout to the keyboard
+exec_always setxkbmap -layout us -variant altgr-intl
+
+#for tranparency (rofi/urxvt)
 exec_always compton -f
 
 #for screenlayout (multimonitor)
@@ -218,5 +216,6 @@ exec_always sh ~/.screenlayout/home4Mon.sh
 #for having urxvt to load correct customizations
 exec_always xrdb ~/.Xresources
 
-#set the us layout to the keyboard
-exec_always setxkbmap -layout us -variant altgr-intl
+#for renaming i3 workspaces according to the terminal
+exec_always --no-startup-id exec ~/.config/i3-renameworkspaces/i3-renameworkspaces.pl -c ~/.config/i3-renameworkspaces.config
+
