@@ -28,7 +28,7 @@ URxvt.termName: screen-256color
 URxvt.scrollBar:false
 URxvt.secondaryScroll: true # enable Shift-PageUp/Down in screen
 URxvt.saveLines:10000
-
+URxvt.geometry:90x25+180+200
 
 !URxvt.letterSpace: -3
 URxvt.font:xft:bitstream vera sans mono:pixelsize=10:antialias=true

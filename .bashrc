@@ -66,3 +66,7 @@ cows=(beavis.zen bud-frogs bunny cheese cower daemon default dragon dragon-and-c
 declare -i MAX=${#cows[@]}
 fortune | cowsay -f ${cows[$[ ( $RANDOM % $MAX ) + 1 ]]} | lolcat
 
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[ -f /home/joel/dev/new/electron-vue-typescript-starter/node_modules/tabtab/.completions/electron-forge.bash ] && . /home/joel/dev/new/electron-vue-typescript-starter/node_modules/tabtab/.completions/electron-forge.bash
