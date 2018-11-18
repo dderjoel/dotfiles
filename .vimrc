@@ -17,4 +17,7 @@ colo desert
 "enable the spellchecker
 set nospell
 "save some mappings for the thesis:
-:let @Q='A\begin{lstlisting}^M^M\end{lstlisting}^[kA'
+:let @L='A\begin{lstlisting}\end{lstlisting}kA'
+:let @T='T i\texttt{f i}'
+
+:map [11~ @T
