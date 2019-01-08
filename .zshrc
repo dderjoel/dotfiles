@@ -100,11 +100,11 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+#set vi mode for the shell
 set -o vi
 
-#map the caps button to the escape key
-setxkbmap -option caps:escape
   
 source ~/.bash_aliases
 source ~/enable-proxy.sh
+
 

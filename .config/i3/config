@@ -168,9 +168,6 @@ bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures
 #bindsym $mod+Shift+Mod1+s exec pkill screenkey 
 #exec screenkey
 
-#for running the pulseaudio
-exec --no-startup-id pulseaudio
-
 #settings for the audio-controls
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
