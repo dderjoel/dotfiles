@@ -4,13 +4,13 @@ if [ $(xrandr | grep " connected" | wc -l) -eq 4 ]; then
 	sh ~/.screenlayout/work3mon.sh
 fi
 
-# start the audiodriver
-pulseaudio &
+source ~/enable-proxy.sh
 
 # use as a base the intl-edition of us-querty
 # map the caps button to the escape key
 # map ALT+oua to german umlauts 
-xkbcomp -xkb $DISPLAY ~/.xkbmap_custom
+# pipe to dev null to get rid of warnings of missing keycodes
+xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
 
 
 # set the typematic delay
