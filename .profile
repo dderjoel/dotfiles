@@ -5,6 +5,7 @@ if [ $(xrandr | grep " connected" | wc -l) -eq 4 ]; then
 fi
 
 source ~/enable-proxy.sh
+export no_proxy=localhost
 
 # set the typematic delay
 # xset t rate _delay_ _rate_
