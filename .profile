@@ -6,17 +6,6 @@ fi
 
 source ~/enable-proxy.sh
 
-#set the ^R for recursive search althouth we have the vi-mode in the shell
-bindkey '^R' history-incremental-search-backward
-
-
-# use as a base the intl-edition of us-querty
-# map the caps button to the escape key
-# map ALT+oua to german umlauts 
-# pipe to dev null to get rid of warnings of missing keycodes
-xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
-
-
 # set the typematic delay
 # xset t rate _delay_ _rate_
 xset r rate 200 30

@@ -163,6 +163,12 @@ exec --no-startup-id xautolock -locker "~/.config/i3/lock_screen.sh" -time 10 -d
 # set screenshot shortcut
 bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
 
+# use as a base the intl-edition of us-querty
+# map the caps button to the escape key
+# map ALT+oua to german umlauts
+# pipe to dev null to get rid of warnings of missing keycodes
+exec xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
+
 #settings for screenkeys:
 #bindsym $mod+Shift+s exec screenkey
 #bindsym $mod+Shift+Mod1+s exec pkill screenkey 

@@ -103,7 +103,8 @@ export LANG=en_US.UTF-8
 #set vi mode for the shell
 set -o vi
 
-  
+#set the ^R for recursive search althouth we have the vi-mode in the shell
+bindkey '^R' history-incremental-search-backward
 source ~/.bash_aliases
 
 
