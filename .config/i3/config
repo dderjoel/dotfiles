@@ -3,8 +3,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:FontAwesome 10, Terminus 10
-
+# install noto-fonts-emoji as well.
+font pango:DejaVu Sans Mono 12, pango:FontAwesome 10, Terminus 10, 
 #Custom Colors
 set $bg-color 	         #800080
 set $inactive-bg-color   #2f343f
@@ -119,10 +119,10 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+y resize shrink width 10 px or 10 ppt
-bindsym $mod+u resize shrink height 10 px or 10 ppt
-bindsym $mod+i resize grow height 10 px or 10 ppt
-bindsym $mod+o resize grow width 10 px or 10 ppt
+bindsym $mod+u resize shrink width 10 px or 10 ppt
+bindsym $mod+i resize shrink height 10 px or 10 ppt
+bindsym $mod+o resize grow height 10 px or 10 ppt
+bindsym $mod+p resize grow width 10 px or 10 ppt
 
 
 bindsym $mod+r mode "resize"
@@ -167,7 +167,7 @@ bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures
 # map the caps button to the escape key
 # map ALT+oua to german umlauts
 # pipe to dev null to get rid of warnings of missing keycodes
-exec xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
+exec_always xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
 
 #settings for screenkeys:
 #bindsym $mod+Shift+s exec screenkey
@@ -192,12 +192,8 @@ bindsym XF86AudioPrev exec playerctl previous
 #Wallpaper
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers
 
-#set the us layout to the keyboard
-exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl
-
 #for tranparency (rofi/st)
 exec_always --no-startup-id compton -f -b --config ~/.config/compton.conf
-
 
 #for having st to load correct customizations
 exec_always --no-startup-id xrdb ~/.Xresources
