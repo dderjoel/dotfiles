@@ -25,3 +25,9 @@ alias gp="git push"
 
 #pacman aliases
 alias pacman="sudo pacman"
+
+
+#proxy aliases
+alias ep="source ~/enable-proxy.sh"
+alias dp="source ~/disable-proxy.sh"
+
