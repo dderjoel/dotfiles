@@ -37,4 +37,5 @@ fi
 #xterm -geometry 80x50+494+51 &
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
+#exec /usr/bin/i3 --shmlog-size=2621440
 exec /usr/bin/i3 
