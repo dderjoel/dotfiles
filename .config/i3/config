@@ -124,11 +124,7 @@ bindsym $mod+i resize shrink height 10 px or 10 ppt
 bindsym $mod+o resize grow height 10 px or 10 ppt
 bindsym $mod+p resize grow width 10 px or 10 ppt
 
-
-bindsym $mod+r mode "resize"
-
 for_window [class="^.*"] border pixel 3 
-
 
 # window colors
 #                       border              background         text                 indicator
@@ -141,7 +137,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        status_command i3blocks -c ~/.config/i3/i3blocks/i3blocks.conf
 	colors {
 		background $inactive-bg-color
 		separator #757575
@@ -151,10 +147,6 @@ bar {
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
 }
-
-#for screenlayout (multimonitor)
-#exec --no-startup-id ~/.screenlayout/edp.sh && ~/.screenlayout/work3mon.sh
-#exec --no-startup-id ~/.screenlayout/work3mon.sh
 
 # set the lockshortcut
 bindsym Pause exec ~/.config/i3/lock_screen.sh
@@ -167,7 +159,7 @@ bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures
 # map the caps button to the escape key
 # map ALT+oua to german umlauts
 # pipe to dev null to get rid of warnings of missing keycodes
-exec_always xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
+exec_always --no-startup-id xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
 
 #settings for screenkeys:
 #bindsym $mod+Shift+s exec screenkey
@@ -199,6 +191,6 @@ exec_always --no-startup-id compton -f -b --config ~/.config/compton.conf
 exec_always --no-startup-id xrdb ~/.Xresources
 
 #for renaming i3 workspaces according to the terminal
-exec_always --no-startup-id ~/.config/i3-renameworkspaces/i3-renameworkspaces.pl -c ~/.config/i3-renameworkspaces.config
+exec_always --no-startup-id ~/.config/i3/i3-renameworkspaces/i3-renameworkspaces.pl -c ~/.config/i3/i3-renameworkspaces/config
 
 
