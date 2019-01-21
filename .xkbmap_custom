@@ -740,8 +740,7 @@ xkb_compatibility "complete" {
         action= SetMods(modifiers=modMapMods,clearLocks);
     };
     interpret Super_R+AnyOf(all) {
-        virtualModifier= Super;
-        action= SetMods(modifiers=modMapMods,clearLocks);
+        action= SetMods(modifiers=LevelThree,clearLocks);
     };
     interpret Hyper_L+AnyOf(all) {
         virtualModifier= Hyper;
