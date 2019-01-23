@@ -22,7 +22,7 @@ ZSH_THEME="random"
 ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "pygmalion" "ys" "agnoster" )
 
 # enable command auto-correction.
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
