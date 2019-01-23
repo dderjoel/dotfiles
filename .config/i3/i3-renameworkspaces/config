@@ -3,9 +3,9 @@
         "firefox": "Firefox ",
         "st": "<span foreground='teal'>Terminal </span>",
 	"pwsafe":"<span foreground='DodgerBlue'>Pwsafe </span>",
-	"teams-for-linux":"<span background='Gold' foreground='BlueViolet'>Teams </span>",
+	"teams-for-linux":"<span background='BlueViolet' foreground='Gold'>Teams </span>",
         "chromium": "<span foreground='Green'>Chrome </span>",
-	"spotify":"Music ",
+	"spotify":"<span background='#1DB054' foreground='white'>Spotify </span>",
 	"hiri":"Mail ",
 	"code":"<span foreground='lime' background='darkblue'>VS Code </span>"
 	},    
