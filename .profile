@@ -11,12 +11,12 @@ xset r rate 200 30
 noconnected=$(xrandr | grep " connected" | wc -l)
 case "$noconnected" in 
 	4)
-		file=~/.screenlayout/work3mon.sh
+#		file=~/.screenlayout/work3mon.sh
 		;;
 	2)
 		file=~/.screenlayout/home1.sh
 		;; 
-	esac
-	if [[ -a $file ]] ; then
-		sh $file
-	fi
+esac
+if [[ -a $file ]] ; then
+	sh $file
+fi
