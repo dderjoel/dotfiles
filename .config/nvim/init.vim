@@ -1,3 +1,12 @@
+"enable plugin manager
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-surround'
+Plug 'leafgarland/typescript-vim'
+
+call plug#end()
+
+
 "enable the current line number plus relative numbers above and below
 set number
 set number relativenumber
