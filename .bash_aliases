@@ -1,4 +1,5 @@
 alias vi=vim
+alias vim=nvim
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'

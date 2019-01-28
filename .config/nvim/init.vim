@@ -1,3 +1,12 @@
+"enable plugin manager
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-surround'
+Plug 'leafgarland/typescript-vim'
+
+call plug#end()
+
+
 "enable the current line number plus relative numbers above and below
 set number
 set number relativenumber
@@ -14,10 +23,9 @@ colo desert
 "Remap capital Q to also close the terminal
 :command! -bar -bang Q quit<bang>
 
-"enable the spellchecker
-set nospell
-"save some mappings for the thesis:
-:let @L='A\begin{lstlisting}\end{lstlisting}kA'
-:let @T='T i\texttt{f i}'
+"Map Y to yank to the end of the line.
+noremap Y y$
 
-:map [11~ @T
+"start searching right away
+set incsearch
+
