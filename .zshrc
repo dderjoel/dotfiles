@@ -21,6 +21,7 @@ export ZSH="/home/joel/.oh-my-zsh"
 ZSH_THEME="random"
 ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "pygmalion" "ys" "agnoster" )
 
+CASE_SENSITIVE="true"
 # enable command auto-correction.
 #ENABLE_CORRECTION="true"
 

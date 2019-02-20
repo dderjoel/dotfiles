@@ -28,7 +28,7 @@ Plug 'leafgarland/typescript-vim'
 "Plug 'Chiel92/vim-autoformat'
 
 " For async completion
-Plug 'Shougo/deoplete.nvim'
+"Plug 'Shougo/deoplete.nvim'
 "Plug 'Shougo/denite.nvim'
 
 "Tslint for vim
@@ -76,13 +76,7 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
             \ 'typescript': ['/usr/bin/javascript-typescript-stdio'],
             \ }
-autocmd Filetype typescript setlocal completefunc=LanguageClient#complete
 
-"tsuquyomi
-"let g:tsuquyomi_comletion_detail =1
-"autocmd Filetype typescript setlocal completeopt+=menu,preview
-"set ballooneval
-"autocmd Filetype typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
 autocmd Filetype typescript source ~/.vim/ftplugin/typescript.vim
 
 "toggle nerd tree
@@ -92,14 +86,15 @@ map <C-n> :NERDTreeToggle<CR>
 "let g:deoplete#enable_at_startup = 1
 
 " power tab
-imap <silent><expr><tab> TabWrap()
+" imap <silent><expr><tab> TabWrap()
 
 " Enter: complete&close popup if visible (so next Enter works); else: break undo
-inoremap <silent><expr> <Cr> pumvisible() ?
-            \ deoplete#mappings#close_popup() : "<C-g>u<Cr>"
+" inoremap <silent><expr> <Cr> pumvisible() ?
+            "\ deoplete#mappings#close_popup() : "<C-g>u<Cr>"
 
 " Ctrl-Space: summon FULL (synced) autocompletion
-inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
+"inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
+"inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
 
 " Escape: exit autocompletion, go to Normal mode
 inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
@@ -119,5 +114,5 @@ set expandtab
 
 "colorcolumn at 180
 set colorcolumn=180
-set columns=180
+
 
