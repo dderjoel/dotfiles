@@ -25,6 +25,7 @@ Plug 'w0rp/ale'
 
 "Provides SyntaxHighlight
 Plug 'leafgarland/typescript-vim'
+Plug 'posva/vim-vue'
 "Plug 'Chiel92/vim-autoformat'
 
 " For async completion
@@ -92,7 +93,7 @@ map <C-n> :NERDTreeToggle<CR>
 "let g:deoplete#enable_at_startup = 1
 
 " power tab
-imap <silent><expr><tab> TabWrap()
+"imap <silent><expr><tab> TabWrap()
 
 " Enter: complete&close popup if visible (so next Enter works); else: break undo
 inoremap <silent><expr> <Cr> pumvisible() ?
@@ -119,5 +120,4 @@ set expandtab
 
 "colorcolumn at 180
 set colorcolumn=180
-set columns=180
 
