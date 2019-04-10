@@ -4,7 +4,7 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # install noto-fonts-emoji as well.
-font pango:DejaVu Sans Mono 12, pango:FontAwesome 10, Terminus 10, 
+font pango:DejaVu Sans Mono 12, pango:FontAwesome 10, Terminus 10
 #Custom Colors
 set $bg-color 	         #800080
 set $inactive-bg-color   #2f343f
@@ -187,7 +187,7 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers
 #for tranparency (rofi/st)
 exec_always --no-startup-id compton -f -b --config ~/.config/compton.conf
 
-#for having st to load correct customizations
+#for having st/xterm to load correct customizations
 exec_always --no-startup-id xrdb ~/.Xresources
 
 #for renaming i3 workspaces according to the terminal
