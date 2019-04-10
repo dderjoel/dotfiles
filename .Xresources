@@ -18,6 +18,10 @@ color0:   #000000
 *color14:  #73f1f1
 *color15:  #f7f7f6
 
+!! for xtem 
+xterm*vt100.background: black
+xterm*vt100.foreground: lightgrey 
+xterm*faceName: monospace:pixelsize=13
 !Xlf.antialias:true
 !Xlf.hinting:true
 !Xlf.hintstyle:hintslight
