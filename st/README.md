@@ -2,14 +2,14 @@
 
 The [suckless terminal (st)](https://st.suckless.org/) with some additional features:
 
-+ Compatibility with `Xresources` and `pywal` for dynamic colors.
++ Compatibility with `Xresources` and `pywal` for dynamic colors. The `Xdefaults` file shows a usage example.
 + Default [gruvbox](https://github.com/morhetz/gruvbox) colors otherwise.
 + Transparency/alpha, which is also adjustable from `~/.Xresources`.
 + Default font is system "mono" at 16pt, meaning the font will match your system font.
 + Very useful keybinds including:
 	+ Copy is alt-c, paste is alt-v or alt-p pastes from primary selection
 	+ Alt-l feeds all urls on screen to dmenu, so they user can choose and
-	  follow one (requires xurls and dmenu installed).
+	  follow one (requires dmenu installed).
 	+ Zoom in/out or increase font size with Alt+Shift+k/j or u/d for larger intervals.
 	+ Hold alt and press either ↑/↓ or the vim keys k/j to move up/down in the terminal.
 	+ Shift+Mouse wheel do the same.
@@ -33,19 +33,15 @@ make
 sudo make install
 ```
 
-Obviously, `make` is required to build. `fontconfig` is required for the
-default build, since it asks `fontconfig` for your system monospace font.  It
-might be obvious, but `libX11` and `libXft` are required as well. Chances are,
-you have all of this installed already.
+Obviously, `make` is required to build. `fontconfig` is required for the default build, since it asks `fontconfig` for your system monospace font.  It might be obvious, but `libX11` and `libXft` are required as well. Chances are, you have all of this installed already.
 
-On OpenBSD, be sure to edit `config.mk` first and remove `-lrt` from the
-`$LIBS` before compiling.
+On OpenBSD, be sure to edit `config.mk` first and remove `-lrt` from the `$LIBS` before compiling.
 
-## How to configure dynamically with Xresrouces
+Be sure to have a composite manager (`xcompmgr`, `compton`, etc.) running if you want transparency.
 
-For many key variables, this build of `st` will look for X settings set in
-either `~/.Xdefaults` or `~/.Xresources`. You must run `xrdb` on one of these
-files to load the settings.
+## How to configure dynamically with Xresources
+
+For many key variables, this build of `st` will look for X settings set in either `~/.Xdefaults` or `~/.Xresources`. You must run `xrdb` on one of these files to load the settings.
 
 For example, you can define your desired fonts, transparency or colors:
 
@@ -67,9 +63,7 @@ To be clear about the color settings:
 - If there are Xresources colors defined, those will take priority.
 - But if `wal` has run in your session, its colors will take priority.
 
-Note that when you run `wal`, it will negate the transparency of existing
-windows, but new windows will continue with the previously defined
-transparency.
+Note that when you run `wal`, it will negate the transparency of existing windows, but new windows will continue with the previously defined transparency.
 
 ## Contact
 
