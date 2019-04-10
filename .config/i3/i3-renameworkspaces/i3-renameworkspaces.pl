@@ -61,7 +61,7 @@ sub updatelabels {
         # say Dumper($wss);
         while (my ($num, $ws) = each(%$wss)) {
             my $oldname = $$ws{'name'};
-            my $newname = join(': ', $num, join('-', @{$$ws{'windows'}}) || ());
+            my $newname = join(': ', $num,   join('<span foreground=\'#00000001\'> </span>', @{$$ws{'windows'}}) || ());
             if ($num >= 1 && $oldname ne $newname) {
                 say("\"$oldname\" -> \"$newname\"");
                 $i3->command("rename workspace \"$oldname\" to \"$newname\"");
