@@ -1,0 +1,5 @@
+#!/bin/bash
+
+##okay somehow the built-in mediaplayer with spotify has two lines (one for Artist one for the title. this xargs will join them
+perl  /usr/lib/i3blocks/mediaplayer | xargs
+
