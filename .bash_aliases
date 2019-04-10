@@ -32,3 +32,7 @@ alias pacman="sudo pacman"
 alias ep="source ~/enable-proxy.sh"
 alias dp="source ~/disable-proxy.sh"
 
+alias qb="qutebrowser &"
+
+#display aliases
+alias wd="sh ~/.screenlayout/work.sh"
