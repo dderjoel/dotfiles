@@ -36,3 +36,6 @@ alias qb="qutebrowser &"
 
 #display aliases
 alias wd="sh ~/.screenlayout/work.sh"
+
+#hosts
+alias vh="sudo vim /etc/hosts"
