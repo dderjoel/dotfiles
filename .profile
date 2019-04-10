@@ -1,5 +1,5 @@
 if [[ -a ~/enable-proxy.sh ]]; then 
-	source ~/enable-proxy.sh
+#	source ~/enable-proxy.sh
 	export no_proxy=localhost
 fi
 
