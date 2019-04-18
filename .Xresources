@@ -27,3 +27,11 @@ xterm*faceName: monospace:pixelsize=13
 !Xlf.hintstyle:hintslight
 !Xlf.lcdfilter:lcddefault
 !Xlf.rgba:rg
+
+!rofi.lines: 4
+!rofi.width: 100
+!rofi.padding: 100
+rofi.opacity: "75"
+rofi.auto-select: true
+rofi.eh: 4
+rofi.theme: /usr/share/rofi/themes/sidebar

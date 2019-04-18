@@ -22,7 +22,7 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi  -show run 
+bindsym $mod+d exec rofi -show run 
 #rofi config in ~/.config/rofi/config
 
 # change focus
@@ -185,7 +185,7 @@ bindsym XF86AudioPrev exec playerctl previous
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers
 
 #for tranparency (rofi/st)
-exec_always --no-startup-id compton -f -b --config ~/.config/compton.conf
+exec_always --no-startup-id compton -b --config ~/.config/compton.conf 
 
 #for having st/xterm to load correct customizations
 exec_always --no-startup-id xrdb ~/.Xresources
