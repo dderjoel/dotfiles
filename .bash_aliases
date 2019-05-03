@@ -39,3 +39,6 @@ alias wd="sh ~/.screenlayout/work.sh"
 
 #hosts
 alias vh="sudo vim /etc/hosts"
+
+#filemanager
+alias fm="vifm"
