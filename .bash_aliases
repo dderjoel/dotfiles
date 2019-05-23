@@ -24,8 +24,11 @@ alias gd="git diff"
 alias gp="git push"
 
 
-#pacman aliases
+#sudo  aliases
 alias pacman="sudo pacman"
+alias mount="sudo mount"
+alias umount="sudo umount"
+
 
 
 #proxy aliases
