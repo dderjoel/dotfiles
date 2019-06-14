@@ -5,8 +5,15 @@
 #itrap revert HUP INT TERM
 #xset +dpms dpms 0 0 5
 #i3lock -e -c 2f343f
-notify-send "locking the screen now" --icon="user-away"
-import -silent -window root png:- | mogrify -blur 0x10 png:- | composite -gravity South -geometry -20x1200 ~/.config/i3/ricknmorty.png png:- png:- >/tmp/lock.png
-i3lock -n -e -u -i /tmp/lock.png &
-echo $!>~/.i3lock
+ls /tmp/lockpipe* >/dev/null
+if [ $? -gt 0 ]; then
+    mkfifo /tmp/lockpipe
+    mkfifo /tmp/lockpipe2
+fi 
+import -silent -window root png:/tmp/lockpipe &
+notify-send "locking the screen now" --icon="user-away" 
+mogrify -blur 0x10 png:- </tmp/lockpipe | composite -gravity South -geometry -20x1200 ~/.config/i3/ricknmorty.png png: /tmp/lockpipe2 
+i3lock -n -e -u -c 123456 -i /tmp/lockpipe2 &
+#echo $!>~/.i3lock
+
 #revert
