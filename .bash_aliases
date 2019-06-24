@@ -46,3 +46,6 @@ alias vh="sudo vim /etc/hosts"
 
 #filemanager
 alias fm="vifm"
+
+#default catting out via bat for beutiful syntax-highlighting/pager/linenumber
+alias cat="bat"
