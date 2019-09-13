@@ -50,3 +50,10 @@ alias fm="vifm"
 
 #default catting out via bat for beutiful syntax-highlighting/pager/linenumber
 alias cat="bat"
+
+
+#npm aliases
+alias b='npm run bump'
+alias o='npm outdated'
+alias u='npm update'
+alias uu='ncu -u && npm i && npm update'
