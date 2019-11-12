@@ -10,10 +10,15 @@ if [ $? -gt 0 ]; then
     mkfifo /tmp/lockpipe
     mkfifo /tmp/lockpipe2
 fi 
-import -silent -window root png:/tmp/lockpipe &
-notify-send "locking the screen now" --icon="user-away" 
-mogrify -blur 0x10 png:- </tmp/lockpipe | composite -gravity South -geometry -20x1200 ~/.config/i3/ricknmorty.png png: /tmp/lockpipe2 
-i3lock -n -e -u -c 123456 -i /tmp/lockpipe2 &
+#import -silent -window root png:/tmp/lockpipe &
+pausing audio
+playerctl pause
+#mogrify -blur 0x10 png:- </tmp/lockpipe | composite -gravity South -geometry -20x1200 ~/.config/i3/ricknmorty.png png: /tmp/lockpipe2 &
+#i3lock -n -e -c 123456 #-i /tmp/lockpipe2 &
+betterlockscreen -l dimblur &
+betterlockscreen -u $(ls ~/Pictures/lock/* | sort -R | head -n1) &
+
+
 #echo $!>~/.i3lock
 
 #revert
