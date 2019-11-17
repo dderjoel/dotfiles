@@ -48,12 +48,26 @@ alias vh="sudo vim /etc/hosts"
 #filemanager
 alias fm="vifm"
 
+#use fzf to find a file and then open it in vim
+v(){
+    f=$(fzf);
+    if [ ! -z "$f" ];
+        then vim $f;
+    fi
+}
+
 #default catting out via bat for beutiful syntax-highlighting/pager/linenumber
 alias cat="bat"
 
+# this is for a terminal countdown timer.
+alias td="termdown"
+
+# always use monday as first dow
+alias cal="cal -m"
 
 #npm aliases
 alias b='npm run bump'
+alias s='npm start'
 alias o='npm outdated'
 alias u='npm update'
 alias uu='ncu -u && npm i && npm update'

@@ -76,3 +76,8 @@ bindkey '^R' history-incremental-search-backward
 #	ssh-add ~/.ssh/erm/id_rsa
 #fi
 
+
+if [ -f ~/todo ]
+then 
+    cat ~/todo
+fi
