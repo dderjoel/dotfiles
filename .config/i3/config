@@ -185,7 +185,7 @@ bindsym XF86AudioPrev exec playerctl previous
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers
 
 #for tranparency (rofi/st)
-exec_always --no-startup-id compton -b --config ~/.config/compton.conf 
+exec_always --no-startup-id picom -b --config ~/.config/picom.conf 
 
 #for having st/xterm to load correct customizations
 exec_always --no-startup-id xrdb ~/.Xresources
@@ -198,3 +198,19 @@ bindsym $mod+s exec --no-startup-id spotify
 bindsym $mod+c exec --no-startup-id chromium
 bindsym $mod+t exec --no-startup-id teams-for-linux
 bindsym $mod+y exec --no-startup-id pavucontrol
+
+#Dropdown / Scratchpad instances
+for_window [class="todo"] floating enable
+for_window [class="todo"] resize set 1300 700
+for_window [class="todo"] move scratchpad
+for_window [class="todo"] border pixel 6
+exec --no-startup-id xterm -class todo -e vim ~/todo 
+bindsym shift+F1 [class="todo"] scratchpad show; [class="todo"] move position center
+
+for_window [class="scratchy"] floating enable
+for_window [class="scratchy"] resize set 1300 700
+for_window [class="scratchy"] move scratchpad
+for_window [class="scratchy"] border pixel 6
+exec --no-startup-id xterm -class scratchy 
+bindsym shift+F2 [class="scratchy"] scratchpad show; [class="scratchy"] move position center
+
