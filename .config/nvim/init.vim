@@ -34,6 +34,12 @@ Plug 'leafgarland/typescript-vim'
 "Plug 'heavenshell/vim-tslint'
 
 "Plug 'Quramy/tsuquyomi'
+
+" this is for i3config syntax highlighting
+Plug 'mboughaba/i3config.vim'
+
+"provides small icons for lines, changed/added in git
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 if executable('fzf')
@@ -174,4 +180,11 @@ set foldmethod=syntax
 "map tab to toggle fold 
 noremap <tab> za 
 
+"using systems clipboard on yank/delete
+set clipboard=unnamedplus
 
+
+aug i3config_ft_detection
+    au!
+    au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+aug end
