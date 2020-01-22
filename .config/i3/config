@@ -213,4 +213,7 @@ for_window [class="scratchy"] move scratchpad
 for_window [class="scratchy"] border pixel 6
 exec --no-startup-id xterm -class scratchy 
 bindsym shift+F2 [class="scratchy"] scratchpad show; [class="scratchy"] move position center
+#and show it in the beginning for me to enter me ssh-key
+exec [class="scratchy"] scratchpad show; [class="scratchy"] move position center 
+
 
