@@ -56,6 +56,9 @@ alias cat="bat"
 # this is for a terminal countdown timer.
 alias td="termdown"
 
+#alias for daily stand up
+alias stand="termdown -s 11:14  && notify-send 'taily' "
+
 # always use monday as first dow
 alias cal="cal -m"
 
