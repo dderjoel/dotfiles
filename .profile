@@ -1,8 +1,3 @@
-if [[ -a ~/enable-proxy.sh ]]; then 
-#	source ~/enable-proxy.sh
-	export no_proxy=localhost
-fi
-
 # set the typematic delay
 # xset t rate _delay_ _rate_
 xset r rate 200 30

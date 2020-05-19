@@ -18,28 +18,14 @@ Plug 'w0rp/ale'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf'
 
-"Plug 'HerringtonDarkholme/yats.vim'
-"Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-
-"Provides SyntaxHighlight
-Plug 'leafgarland/typescript-vim'
-"Plug 'posva/vim-vue'
-"Plug 'Chiel92/vim-autoformat'
-
-" For async completion
-"Plug 'Shougo/deoplete.nvim'
-"Plug 'Shougo/denite.nvim'
-
-"Tslint for vim
-"Plug 'heavenshell/vim-tslint'
-
-"Plug 'Quramy/tsuquyomi'
-
 " this is for i3config syntax highlighting
 Plug 'mboughaba/i3config.vim'
 
 "provides small icons for lines, changed/added in git
 Plug 'airblade/vim-gitgutter'
+
+"Completion for C/Cpp
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 if executable('fzf')
@@ -138,22 +124,8 @@ autocmd Filetype typescript source ~/.vim/ftplugin/typescript.vim
 "toggle nerd tree
 map <C-n> :NERDTreeToggle<CR>
 
-"autocomplete startup
-"let g:deoplete#enable_at_startup = 1
-
-" power tab
-"imap <silent><expr><tab> TabWrap()
-
-" Enter: complete&close popup if visible (so next Enter works); else: break undo
-" inoremap <silent><expr> <Cr> pumvisible() ?
-            "\ deoplete#mappings#close_popup() : "<C-g>u<Cr>"
-
-" Ctrl-Space: summon FULL (synced) autocompletion
-"inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
-"inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
-
-" Escape: exit autocompletion, go to Normal mode
-inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
+"youcompleteme, accept current suggestion w/ CR
+let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
@@ -183,8 +155,22 @@ noremap <tab> za
 "using systems clipboard on yank/delete
 set clipboard=unnamedplus
 
+"enable recursive search with built-in 'find's
+set path+=**
+
+"load .vimrc in current folder securely
+set exrc
+set secure
 
 aug i3config_ft_detection
     au!
     au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+aug end
+
+
+" set filetype for asm files
+aug asm_ft_detection
+    au!
+    au BufNewFile,BufRead *.asm set filetype=nasm
+    au BufNewFile,BufRead *.asm let  g:ale_nasm_nasm_options = "-f elf64"
 aug end

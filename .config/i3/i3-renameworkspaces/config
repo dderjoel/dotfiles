@@ -1,15 +1,15 @@
 {
     "classes": {
         "firefox": "Firefox ",
-        "st": "<span foreground='teal'>Terminal </span>",
-        "xterm": "<span foreground='teal'>XTerminal </span>",
-	"pwsafe":"<span foreground='DodgerBlue'>Pwsafe </span>",
-	"teams-for-linux":"<span background='BlueViolet' foreground='Gold'>Teams </span>",
-        "chromium": "<span foreground='Green'>Chrome </span>",
-	"spotify":"<span background='#1DB054' foreground='white'>Spotify </span>",
-	"hiri":"Mail  ",
-	"code":"<span foreground='lime' background='darkblue'>VS Code </span>"
-	},    
-    "instances": {
-    }
+            "brave-browser": "<span foreground='#1EBBEE'> </span> Brave",
+            "xterm": "<span foreground='white'>T </span>",
+            "zoom":"<span background='BlueViolet' foreground='Gold'> Zoom</span>",
+            "chromium": "<span foreground='Green'>Chrome </span>",
+            "spotify":"<span background='#1DB054' foreground='white'> Spotify</span>",
+"mendeley desktop": "<span background='#AAAAAA' foreground='#CC3F3F'> Mendeley</span>",
+            "code":"<span foreground='lime' background='darkblue'>VS Code </span>",
+            "pavucontrol":"<span foreground='lime' background='darkblue'> Ctl</span>"
+    },    
+        "instances": {
+        }
 }
