@@ -8,6 +8,7 @@
             "spotify":"<span background='#1DB054' foreground='white'> Spotify</span>",
 "mendeley desktop": "<span background='#AAAAAA' foreground='#CC3F3F'> Mendeley</span>",
             "code":"<span foreground='lime' background='darkblue'>VS Code </span>",
+            "signal beta":"<span foreground='white' background='#3333DD'> Signal</span>",
             "pavucontrol":"<span foreground='lime' background='darkblue'> Ctl</span>"
     },    
         "instances": {
