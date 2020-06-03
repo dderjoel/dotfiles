@@ -18,6 +18,9 @@ Plug 'w0rp/ale'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf'
 
+"formatter for c familiy
+Plug 'rhysd/vim-clang-format'
+
 " this is for i3config syntax highlighting
 Plug 'mboughaba/i3config.vim'
 
@@ -174,3 +177,8 @@ aug asm_ft_detection
     au BufNewFile,BufRead *.asm set filetype=nasm
     au BufNewFile,BufRead *.asm let  g:ale_nasm_nasm_options = "-f elf64"
 aug end
+
+
+" enable autoformat on save
+autocmd FileType c ClangFormatAutoEnable
+
