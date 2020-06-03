@@ -57,7 +57,10 @@ alias cat="bat"
 alias td="termdown"
 
 #alias for daily stand up
-alias stand="termdown -s 11:14  && notify-send 'taily' "
+alias stand="termdown -s 11:14  && notify-send 'daily' "
+
+#alias for starting x
+alias x="startx"
 
 # always use monday as first dow
 alias cal="cal -m"
