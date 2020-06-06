@@ -18,6 +18,9 @@ set $urgent-bg-color     #E53935
 # pipe to dev null to get rid of warnings of missing keycodes
 exec_always --no-startup-id xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
 
+#set keyboard refreshrate
+exec_always --no-startup-id xset r rate 300 50
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
