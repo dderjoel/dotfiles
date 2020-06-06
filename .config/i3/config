@@ -24,17 +24,17 @@ exec_always --no-startup-id xset r rate 300 50
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# Use pactl to adjust volume in PulseAudio.
+set $lock_screen ~/.config/i3/lock_screen.sh
+exec --no-startup-id xautolock -time 1 -locker $lock_screen
+exec --no-startup-id xss-lock --transfer-sleep-lock -- $lock_screen --nofork
+bindsym Pause exec --no-startup-id $lock_screen
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-
 
 exec --no-startup-id ~/.fehbg
 # NetworkManager is the most popular way to manage wireless networks on Linux,
