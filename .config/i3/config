@@ -58,7 +58,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xterm
+bindsym $mod+Return exec xterm -fa FiraCode\ Nerd\ Font\ Mono -fs 11
 
 # kill focused window
 bindsym $mod+Shift+q kill
