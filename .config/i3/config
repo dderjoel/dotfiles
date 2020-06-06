@@ -32,8 +32,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# starting the pulseaudio server
-exec --no-startup-id pulseaudio
 
 exec --no-startup-id ~/.fehbg
 # NetworkManager is the most popular way to manage wireless networks on Linux,
