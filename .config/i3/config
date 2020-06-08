@@ -12,12 +12,6 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
-# keyboard layout: use as a base the intl-edition of us-querty
-# map the caps button to the escape key
-# map ALT+oua to german umlauts
-# pipe to dev null to get rid of warnings of missing keycodes
-exec_always --no-startup-id xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
-
 #set keyboard refreshrate
 exec_always --no-startup-id xset r rate 300 50
 
@@ -28,7 +22,7 @@ floating_modifier $mod
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # Use pactl to adjust volume in PulseAudio.
 set $lock_screen ~/.config/i3/lock_screen.sh
-exec --no-startup-id xautolock -time 1 -locker $lock_screen
+exec --no-startup-id xautolock -time 5 -locker $lock_screen
 exec --no-startup-id xss-lock --transfer-sleep-lock -- $lock_screen --nofork
 bindsym Pause exec --no-startup-id $lock_screen
 
@@ -48,11 +42,11 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3blocks
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3blocks
 
-#Brightness 
+#Brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id sudo light -A 10 & $refresh_i3blocks
 bindsym XF86MonBrightnessDown exec --no-startup-id sudo light -U 9 & $refresh_i3blocks
 
-#Playerctl 
+#Playerctl
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
@@ -179,7 +173,7 @@ bindsym $mod+i resize shrink height 10 px or 10 ppt
 bindsym $mod+o resize grow height 10 px or 10 ppt
 bindsym $mod+p resize grow width 10 px or 10 ppt
 
-for_window [class="^.*"] border pixel 3 
+for_window [class="^.*"] border pixel 3
 
 # window colors
 #                       border              background         text                 indicator
