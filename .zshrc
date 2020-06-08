@@ -68,16 +68,8 @@ set -o vi
 #set the ^R for recursive search althouth we have the vi-mode in the shell
 bindkey '^R' history-incremental-search-backward
 
-#done by ssh-agent plugin
-#if [ -z "$SSH_AUTH_SOCK" ] ; then
-##	eval `ssh-agent -s`
-#	#private, github.com
-#	ssh-add ~/.ssh/id_rsa
-#	ssh-add ~/.ssh/erm/id_rsa
-#fi
-
-
 if [ -f ~/todo ]
 then 
     cat ~/todo
 fi
+
