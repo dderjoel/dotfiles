@@ -1337,7 +1337,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(escape)" {
     };
     key <AB01> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               z,               Z,              ae,              AE ]
+        symbols[Group1]= [               z,               Z,              bar,              AE ]
     };
     key <AB02> {
         type= "FOUR_LEVEL_ALPHABETIC",
@@ -1373,7 +1373,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(escape)" {
     };
     key <AB10> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [           slash,        question,    questiondown,       dead_hook ]
+        symbols[Group1]= [           slash,        question,    backslash,       dead_hook ]
     };
     key <RTSH> {         [         Shift_R ] };
     key <KPMU> {
