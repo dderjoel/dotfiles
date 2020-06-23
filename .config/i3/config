@@ -29,7 +29,7 @@ floating_modifier $mod
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # Use pactl to adjust volume in PulseAudio.
 set $lock_screen ~/.config/i3/lock_screen.sh
-exec --no-startup-id xautolock -time 5 -locker $lock_screen
+exec --no-startup-id xautolock -time 10 -locker $lock_screen
 exec --no-startup-id xss-lock --transfer-sleep-lock -- $lock_screen --nofork
 bindsym Pause exec --no-startup-id $lock_screen
 
@@ -180,7 +180,7 @@ bindsym $mod+i resize shrink height 10 px or 10 ppt
 bindsym $mod+o resize grow height 10 px or 10 ppt
 bindsym $mod+p resize grow width 10 px or 10 ppt
 
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 2
 
 # window colors
 #                       border              background         text                 indicator
@@ -201,5 +201,5 @@ exec_always --no-startup-id xrdb ~/.Xresources
 
 #Program shortcuts
 bindsym $mod+s exec --no-startup-id spotify
-bindsym $mod+c exec --no-startup-id chromium
+bindsym $mod+c exec --no-startup-id brave
 bindsym $mod+y exec --no-startup-id pavucontrol
