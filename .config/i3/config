@@ -201,5 +201,6 @@ exec_always --no-startup-id xrdb ~/.Xresources
 
 #Program shortcuts
 bindsym $mod+s exec --no-startup-id spotify
+bindsym $mod+m exec xterm -fa FiraCode\ Nerd\ Font\ Mono -fs 11 neomutt
 bindsym $mod+c exec --no-startup-id brave
 bindsym $mod+y exec --no-startup-id pavucontrol

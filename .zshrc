@@ -36,7 +36,7 @@ COMPLETION_WAITING_DOTS="true"
 # plugins to load
 # Standard plugins ~/.oh-my-zsh/plugins/*
 # Custom plugins ~/.oh-my-zsh/custom/plugins/
-zstyle :omz:plugins:ssh-agent identities id_rsa bitbucket/id_rsa
+zstyle :omz:plugins:ssh-agent identities id_rsa bitbucket/id_rsa uoa/id_ed25519
 plugins=(
   git
   ssh-agent

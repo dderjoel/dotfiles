@@ -32,8 +32,8 @@ SSID=$(nmcli | grep $INTERFACE: | awk -F'connected to' '{print $2}' )
 
 #------------------------------------------------------------------------
 
-echo " $QUALITY% $SSID" # full text
-echo " $QUALITY% $SSID" # short text
+printf " %03d%% %s\n" $QUALITY "$SSID" # full text
+printf " %03d\n" $QUALITY # short ext
 
 # color
 if [[ $QUALITY -ge 80 ]]; then

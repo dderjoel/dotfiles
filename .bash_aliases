@@ -26,6 +26,12 @@ alias gp="git push"
 
 #sudo  aliases
 alias pacman="sudo pacman"
+aur(){
+    cd ~/aur
+    git clone "https://aur.archlinux.org/$1"
+    cd "$1"
+    makepkg -si
+}
 alias docker="sudo docker"
 alias mount="sudo mount"
 alias umount="sudo umount"
