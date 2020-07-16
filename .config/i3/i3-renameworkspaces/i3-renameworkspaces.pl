@@ -39,14 +39,23 @@ $i3->connect->recv() or die('Error connecting to i3');
 sub recurse {
     my ($parent, $wss, $windows) = @_;
     if ($$parent{'type'} eq 'workspace') {
-        $$wss{$$parent{'num'}} = { name => $$parent{'name'}, windows => ($windows = [])};
+        if ( $$config{'staticnames'}{$$parent{'num'}} ) {
+            $$wss{$$parent{'num'}} = { name =>$$config{'staticnames'}{$$parent{'num'}}, oldname => $$parent{'name'}} ;
+        }
+        else {
+            $$wss{$$parent{'num'}} = {  windows => ($windows = []), oldname=> $$parent{'name'}};
+        }        
     }
     if ($$parent{'window_properties'}) {
-        my $class = lc($$parent{'window_properties'}{'class'});
+        my $title = lc($$parent{'window_properties'}{'title'});
+        my $role = lc($$parent{'window_properties'}{'window_role'});
         my $instance = lc($$parent{'window_properties'}{'instance'});
-        my $name = $$config{'classes'}{$class} ||
+        my $class = lc($$parent{'window_properties'}{'class'});
+        my $name = $$config{'titles'}{$title} ||
+                   $$config{'roles'}{$role} ||
                    $$config{'instances'}{$instance} ||
-                   $class;
+                   $$config{'classes'}{$class} ||
+                   lc($class);
         push(@$windows, $name) if !grep {$_ eq $name} @$windows;
     }
     foreach (@{$$parent{'nodes'}})          { recurse($_, $wss, $windows) };
@@ -54,14 +63,21 @@ sub recurse {
 }
 
 sub updatelabels {
+    my $newname ;
     $i3->get_tree->cb(sub {
         my $wss = {};
         recurse($_[0]->recv(), $wss);
         # say Dumper($_[0]->recv());
         # say Dumper($wss);
         while (my ($num, $ws) = each(%$wss)) {
-            my $oldname = $$ws{'name'};
-            my $newname = join(': ', $num,   join('<span foreground=\'#00000001\'> </span>', @{$$ws{'windows'}}) || ());
+            my $oldname = $$ws{'oldname'};
+            my $staticname = $$ws{'name'};
+            if ($$ws{'windows'}) {
+                $newname = join(': ', $num, join(' ', @{$$ws{'windows'}}) || ());
+            }
+            else {
+                $newname = join(': ', $num, $staticname);
+            }
             if ($num >= 1 && $oldname ne $newname) {
                 say("\"$oldname\" -> \"$newname\"");
                 $i3->command("rename workspace \"$oldname\" to \"$newname\"");
