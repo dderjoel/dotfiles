@@ -1,5 +1,5 @@
-
-#dependencies: neomutt w3m lynx urlview pass cronie abook openfile
+# vim: syntax=neomuttrc
+#dependencies: neomutt w3m lynx urlview pass cronie abook openfile pandoc
 #base: mutt-wizard (thanks lukesmith.xyz)
 # then add to ~/.config/mutt/accounts/1-WHATEVER.muttrc 'source ~/.config/mutt/personalsettings.muttrc'
 #own configs
@@ -21,3 +21,6 @@ bind index d delete-message
 bind index u noop
 bind index,pager,browser \cd half-down
 bind index,pager,browser \cu half-up
+
+#urgent on new mail
+set beep_new
