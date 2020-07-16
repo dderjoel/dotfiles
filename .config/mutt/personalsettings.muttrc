@@ -1,0 +1,12 @@
+
+#own configs
+#delete to trash instead of directly delete it
+set trash = "+Deleted\ Items"
+
+#enable thread sorting (as aux, since primary sort is reverse-date)
+set sort_aux = "threads"
+
+#bind F to fwd msg
+bind index,pager F forward-message
+#bind f to check for links
+macro pager f  |urlview\n
