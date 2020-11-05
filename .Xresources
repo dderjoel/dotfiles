@@ -23,6 +23,7 @@ xterm*vt100.background: black
 xterm*vt100.foreground: lightgrey 
 xterm*faceName: FiraCode Nerd Font Mono
 xterm*faceSize: 11
+xterm*vt100.bellIsUrgent: true
 !Xlf.antialias:true
 !Xlf.hinting:true
 !Xlf.hintstyle:hintslight

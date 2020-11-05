@@ -21,6 +21,8 @@ bind index d delete-message
 bind index u noop
 bind index,pager,browser \cd half-down
 bind index,pager,browser \cu half-up
+bind pager gg top
+bind pager G bottom
 
 #urgent on new mail
 set beep_new
