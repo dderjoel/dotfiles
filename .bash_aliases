@@ -16,7 +16,6 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias sn="shutdown now"
-alias findn="find -name "
 
 #git aliases
 alias gs="git status"
@@ -36,7 +35,6 @@ alias docker="sudo docker"
 alias mount="sudo mount"
 alias umount="sudo umount"
 
-alias qb="qutebrowser &"
 
 #display aliases
 alias wd="sh ~/.screenlayout/work.sh"
@@ -45,16 +43,6 @@ alias wh="sh ~/.screenlayout/home.sh"
 #hosts
 alias vh="sudo vim /etc/hosts"
 
-#filemanager
-alias fm="vifm"
-
-#use fzf to find a file and then open it in vim
-v(){
-    f=$(fzf);
-    if [ ! -z "$f" ];
-        then vim $f;
-    fi
-}
 
 #default catting out via bat for beutiful syntax-highlighting/pager/linenumber
 alias cat="bat"
