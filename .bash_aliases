@@ -31,6 +31,8 @@ clc(){
     echo "Adeleaide `TZ=Australia/Adelaide date $fmt`"
 }
 
+# changes directory to the pysical location in case you are in a symlinked dir
+alias cdp='cd `pwd -P`' 
 #sudo  aliases
 alias pacman="sudo pacman"
 aur(){
