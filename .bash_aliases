@@ -57,6 +57,11 @@ alias vh="sudo vim /etc/hosts"
 #default catting out via bat for beutiful syntax-highlighting/pager/linenumber
 alias cat="bat"
 
+#fun
+alias wtf="man"
+alias fucking="sudo "
+alias please='sudo $(fc -ln -1) '
+
 # this is for a terminal countdown timer.
 alias td="termdown"
 
