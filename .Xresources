@@ -21,7 +21,8 @@ color0:   #000000
 !! for xtem 
 xterm*vt100.background: black
 xterm*vt100.foreground: lightgrey 
-xterm*faceName: monospace:pixelsize=13
+xterm*faceName: FiraCode Nerd Font Mono
+xterm*faceSize: 11
 !Xlf.antialias:true
 !Xlf.hinting:true
 !Xlf.hintstyle:hintslight
