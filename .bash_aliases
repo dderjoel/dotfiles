@@ -48,8 +48,9 @@ alias umount="sudo umount"
 
 
 #display aliases
-alias wd="sh ~/.screenlayout/work.sh"
-alias wh="sh ~/.screenlayout/home.sh"
+alias wd="sh ~/dotfiles/screenlayout/default.screenlayout.sh"
+alias ws="sh ~/dotfiles/screenlayout/single.screenlayout.sh"
+alias wp="sh ~/dotfiles/screenlayout/present.screenlayout.sh"
 
 #hosts
 alias vh="sudo vim /etc/hosts"
