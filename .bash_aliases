@@ -67,7 +67,7 @@ alias please='sudo $(fc -ln -1) '
 alias td="termdown"
 
 #alias for daily stand up
-alias stand="termdown -s 11:14  && notify-send 'daily' "
+alias lunch="termdown -s 12:07 && notify-send 'LUNCH' 'LUNCH' -i face-cool "
 
 #alias for starting x
 alias x="startx"
