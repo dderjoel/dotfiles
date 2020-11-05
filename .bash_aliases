@@ -36,6 +36,7 @@ alias cdp='cd `pwd -P`'
 #sudo  aliases
 alias pacman="sudo pacman"
 aur(){
+    [[ "$1" -eq "" ]] && return 1;
     cd ~/aur
     git clone "https://aur.archlinux.org/$1"
     cd "$1"
