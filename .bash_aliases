@@ -22,6 +22,14 @@ alias gs="git status"
 alias gd="git diff"
 alias gp="git push"
 
+#workld clock function
+clc(){
+    fmt="+%A, %H:%M"
+    echo "UTC       `TZ=UTC/UTC date $fmt`"
+    echo "Taipei    `TZ=Asia/Taipei date $fmt`"
+    echo "Berlin    `TZ=Europe/Berlin date $fmt`"
+    echo "Adeleaide `TZ=Australia/Adelaide date $fmt`"
+}
 
 #sudo  aliases
 alias pacman="sudo pacman"
