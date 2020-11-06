@@ -10,10 +10,17 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
+    "vue",
     "html",
     "json",
     "css",
     "scss"
   ],
-  "explorer.icon.enableNerdfont": true
+  "vetur.experimental.templateInterpolationService": true,
+  "vetur.useWorkspaceDependencies": true,
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "explorer.icon.enableNerdfont": true,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": ""
 }

@@ -12,6 +12,10 @@
             "neomutt":"<span foreground='white' background='#5555FF'> Mail</span>",
             "pavucontrol":"<span foreground='lime' background='darkblue'> Ctl</span>"
     },    
+        "titles":{
+            "nvim":"<span foreground='#019833'>\uf27d</span>"
+        },
         "instances": {
         }
+    ,"roles":{}
 }

@@ -7,13 +7,17 @@ Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 
-Plug 'autozimu/LanguageClient-neovim', {
-            \ 'branch': 'next',
-            \ 'do': 'bash install.sh',
-            \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"             \ 'branch': 'next',
+"             \ 'do': 'bash install.sh',
+"             \ }
 
 "complete for TS/C/...
 Plug 'neoclide/coc.nvim', {'branch':'release'}
+
+" This is the backend for coc-vimtex
+Plug 'lervag/vimtex'
+
 "file browser
 " Plug 'scrooloose/nerdtree'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -30,9 +34,10 @@ Plug 'ctrlpvim/ctrlp.vim' "fuzzy find files
 "formatter for c familiy
 Plug 'rhysd/vim-clang-format'
 
-" this is for i3config syntax highlighting
+" this is for syntax highlighting
 Plug 'mboughaba/i3config.vim'
-
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'HerringtonDarkholme/yats.vim'
 "provides small icons for lines, changed/added in git
 Plug 'airblade/vim-gitgutter'
 
@@ -88,8 +93,8 @@ vnoremap <Leader>k y :%s/<C-r>"//g<Left><Left>
 "Language server specifications:
 " let g:LanguageClient_autoStart = 1
 "let g:LanguageClient_serverCommands = {
-            " \ 'typescript': ['/usr/bin/javascript-typescript-stdio'],
-            " \ }
+" \ 'typescript': ['/usr/bin/javascript-typescript-stdio'],
+" \ }
 
 "autocmd Filetype typescript source ~/.vim/ftplugin/typescript.vim
 
@@ -167,9 +172,9 @@ aug i3config_ft_detection
 aug end
 
 "let g:ale_fixers = {
-"\ "*":['remove_trailing_lines', 'trim_whitespace'],
-"\ 'javascript': ['eslint'],
-"\ 'typescript': ['eslint']
+            "\ "*":['remove_trailing_lines', 'trim_whitespace'],
+            "\ 'javascript': ['eslint'],
+            "\ 'typescript': ['eslint']
 "\}
 "let g:ale_fix_on_save = 1
 "let g:ale_sign_error=">"
@@ -183,11 +188,11 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -206,6 +211,8 @@ aug ts_ft_detection
     au!
     au BufNewFile,BufRead *.ts let b:ale_fixers=['eslint']
 aug end
+"set flavor for vimtex, see :help vimtex-tex-flavor
+let g:tex_flavor = "latex"
 
 " set filetype for asm files
 aug asm_ft_detection
@@ -218,4 +225,18 @@ aug end
 " enable autoformat on save
 "autocmd FileType c ClangFormatAutoEnable -> commented, since this should be
 "done by coc
-autocmd FileType json syntax match Comment +\/\/.\+$+
+aug json_ft_detection
+    au!
+    au FileType json syntax match Comment +\/\/.\+$+
+aug end
+
+aug c_autoformat
+    au!
+    au FileType *.c,*.cpp,*.h setlocal equalprg=clang-format
+    au BufWritePre *.c :normal gg=G
+aug end
+
+aug tex_ft_detection
+    au!
+    au FileType tex g:vimtex_compiler_progname = "nvr"
+aug end
