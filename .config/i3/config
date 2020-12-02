@@ -206,6 +206,9 @@ bar {
 #for having st/xterm to load correct customizations
 exec_always --no-startup-id xrdb ~/.Xresources
 
+#initialize the mutt-wizard Sync... subsequent syncs are handled by cron, if the passphrase has been saved
+exec_always --no-startup-id mw -Y
+
 #Program shortcuts
 bindsym $mod+s exec --no-startup-id spotify
 bindsym $mod+m exec xterm -class neomutt neomutt
