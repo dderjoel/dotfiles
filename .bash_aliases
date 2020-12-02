@@ -74,7 +74,7 @@ alias lunch="termdown -s 12:07 && notify-send 'LUNCH' 'LUNCH' -i face-cool "
 alias x="startx"
 
 # always use monday as first dow
-alias cal="cal -m"
+alias cal="cal -m -3"
 
 #npm aliases
 alias b='npm run bump'
@@ -82,3 +82,4 @@ alias s='npm start'
 alias o='npm outdated'
 alias u='npm update'
 alias uu='ncu -u && npm i && npm update'
+
