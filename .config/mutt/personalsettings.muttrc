@@ -14,7 +14,8 @@ set sort_aux = "reverse-last-date-received"
 bind index,pager F forward-message
 
 #bind f to check for links
-macro pager f  |urlview\n
+macro index,pager f  "|urlscan -c \n"
+macro attach,compose f  "<pipe-entry> urlscan -c \n"
 
 #bind d to delete the message
 bind index d delete-message
