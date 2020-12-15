@@ -56,6 +56,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 
 export EDITOR='vim'
+export BROWSER='/usr/bin/firefox-developer-edition'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
