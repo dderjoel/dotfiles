@@ -76,6 +76,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+d exec --no-startup-id ~/.config/i3/open_empty_workspace.sh i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -172,6 +173,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 #open new free WS
 bindsym $mod+n exec --no-startup-id ~/.config/i3/open_empty_workspace.sh
+bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/open_empty_workspace.sh xterm
 
 
 # reload the configuration file
