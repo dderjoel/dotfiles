@@ -15,6 +15,11 @@ compinit
 # ZMV is a bulk rename tool
 autoload zmv
 
+# edit the current command line in $EDITOR
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 
