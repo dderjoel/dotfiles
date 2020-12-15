@@ -60,8 +60,7 @@ alias wp="sh ~/dotfiles/screenlayout/present.screenlayout.sh"
 #hosts
 alias vh="sudo vim /etc/hosts"
 
-
-#default catting out via bat for beutiful syntax-highlighting/pager/linenumber
+#default catting out via bat for beautiful syntax-highlighting/pager/linenumber
 alias cat="bat"
 
 #fun
