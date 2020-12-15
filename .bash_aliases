@@ -35,19 +35,22 @@ clc(){
 
 # changes directory to the pysical location in case you are in a symlinked dir
 alias cdp='cd `pwd -P`' 
-#sudo  aliases
+
+#sudo aliases
 alias pacman="sudo pacman"
-aur(){
-    [[ "$1" -eq "" ]] && return 1;
-    cd ~/aur
-    git clone "https://aur.archlinux.org/$1"
-    cd "$1"
-    makepkg -si
-}
 alias docker="sudo docker"
 alias mount="sudo mount"
 alias umount="sudo umount"
 
+#clone something into ~aur folder
+clone(){
+    [[ -z ${1} ]] && return 1;
+    echo cloning\ ${1}
+    cd ~/aur
+    git clone "https://aur.archlinux.org/$1"
+    cd "$1"
+    makepkg -si --noconfirm
+}
 
 #display aliases
 alias wd="sh ~/dotfiles/screenlayout/default.screenlayout.sh"
