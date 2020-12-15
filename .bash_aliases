@@ -88,3 +88,9 @@ alias o='npm outdated'
 alias u='npm update'
 alias uu='ncu -u && npm i && npm update'
 
+alias sm="neomutt phd -s Statusupdate\ \#$(expr $(grep -r Statusupdate ~/.local/share/mail/uoa/Sent\ Items/cur | cut -d'#' -f2 | sort -g -u | tail -n1) + 1)"
+
+alias in="mupdf ~/dev/1research/cryptopt/paper/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.pdf &; disown; exit 0;"
+
+# connect to bluetooth headset
+alias bt='echo "power on\n connect 00:16:94:1E:40:92" | bluetoothctl && sleep 2 && echo "connect 00:16:94:1E:40:92" | bluetoothctl'
