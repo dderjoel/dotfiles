@@ -69,7 +69,7 @@ alias fucking="sudo "
 alias please='sudo $(fc -ln -1) '
 
 # this is for a terminal countdown timer.
-alias td="termdown"
+alias td="termdown -s "
 
 #alias for daily stand up
 alias lunch="termdown -s 12:07 && notify-send 'LUNCH' 'LUNCH' -i face-cool "
