@@ -46,10 +46,11 @@ alias umount="sudo umount"
 clone(){
     [[ -z ${1} ]] && return 1;
     echo cloning\ ${1}
-    cd ~/aur
+    pushd ~/aur
     git clone "https://aur.archlinux.org/$1"
     cd "$1"
     makepkg -si --noconfirm
+    popd
 }
 
 #display aliases
