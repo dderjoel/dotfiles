@@ -8,11 +8,12 @@ do
     if [[ ! " ${occupied[@]} " =~ " ${candidate} " ]]; then
         echo ${candidate}
         # if so, open new ws
-        i3-msg workspace ${candidate}
+        [[ ${#} -eq 1 ]] && [[ "${1}" == "--move" ]] && i3-msg move container to workspace number ${candidate}
+        i3-msg workspace number ${candidate}
         break
     fi
 done
 
 # if there is some parameter, execute that parameter
-[[ $# > 0 ]] && $1
+[[ ${#} > 0 ]] && [[ "${1}" != "--move" ]] && $1
 exit 0;
