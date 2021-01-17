@@ -21,10 +21,6 @@ exec_always --no-startup-id xset r rate 180 80
 # see .custom.map.gz for info on how to enable that mapping in console as well.
 exec_always --no-startup-id xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
 
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # Use pactl to adjust volume in PulseAudio.
