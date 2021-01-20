@@ -35,6 +35,10 @@ clc(){
 
 # changes directory to the pysical location in case you are in a symlinked dir
 alias cdp='cd `pwd -P`' 
+# copies current wd into xclip
+alias cwd='pwd | xclip'
+# goes into dir from xclip
+alias cwd='cd `xclip -o`'
 
 #sudo aliases
 alias pacman="sudo pacman"
