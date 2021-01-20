@@ -81,7 +81,7 @@ alias lunch="termdown -s 12:07 && notify-send 'LUNCH' 'LUNCH' -i face-cool "
 alias ad="termdown -s 15:29 && notify-send 'advent' 'advent' -i face-cool "
 
 #alias for starting x
-alias x="startx"
+alias x="cd && startx"
 
 # always use monday as first dow
 alias cal="cal -m -3"
