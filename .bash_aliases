@@ -57,6 +57,15 @@ clone(){
     popd
 }
 
+#foreach helper
+ea(){
+    [[ ${#} -eq 0 ]] && echo "call like this: ls | ea wc -l\n then wc will be called like 'wc -l file1', then 'wc -l file2' "
+    while IFS= read -r line
+    do
+        $@ $line
+    done
+}
+
 #display aliases
 alias wd="sh ~/dotfiles/screenlayout/default.screenlayout.sh"
 alias ws="sh ~/dotfiles/screenlayout/single.screenlayout.sh"
