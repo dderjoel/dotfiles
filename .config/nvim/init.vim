@@ -248,4 +248,16 @@ aug tex_ft_detection
     au FileType tex g:vimtex_compiler_progname = "nvr"
     au FileType tex :noremap <leader>e i\emph{<C-c>wea}<C-c>
 aug end
+
+aug c_ft_detection
+    au!
+    function! SwitchSourceHeader()
+        "update!
+        if (expand ("%:e") == "c")
+            find %:t:r.h
+        else
+            find %:t:r.c
+        endif
+    endfunction
+    au FileType c,cpp nnoremap <Space>s :call SwitchSourceHeader()<CR>
 aug end
