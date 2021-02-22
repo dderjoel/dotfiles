@@ -13,7 +13,8 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
 #set keyboard refreshrate
-exec_always --no-startup-id xset r rate 180 80
+exec_always --no-startup-id xset r rate 140 80
+
 # keyboard layout: use as a base the intl-edition of us-querty
 # map the caps button to the escape key
 # map ALT+oua to german umlauts
