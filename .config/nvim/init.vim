@@ -99,6 +99,7 @@ vnoremap <Leader>k y :%s/<C-r>"//g<Left><Left>
 "autocmd Filetype typescript source ~/.vim/ftplugin/typescript.vim
 
 :nmap <space>e :CocCommand explorer<CR>
+:nmap <space>d :CocDiagnostics<CR>
 " nerd tree Settings
 " map <C-n> :NERDTreeToggle<CR>
 " let g:NERDTreeIgnore = ['^node_modules$']
