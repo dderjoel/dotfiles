@@ -32,7 +32,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim' "fuzzy find files
 
 "formatter for c familiy
-Plug 'rhysd/vim-clang-format'
+" Plug 'rhysd/vim-clang-format'
 
 " this is for syntax highlighting
 Plug 'mboughaba/i3config.vim'
