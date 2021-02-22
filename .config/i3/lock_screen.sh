@@ -1,19 +1,26 @@
-#!/bin/bash
-#revert() {
-#  xset dpms 0 0 0
-#}
-#itrap revert HUP INT TERM
-#xset +dpms dpms 0 0 5
-#i3lock -e -c 2f343f
-#import -silent -window root png:/tmp/lockpipe &
+#!/usr/bin/env bash
 
-#pausing audio
+#exiting script, if i3lock is already running
+pgrep i3lock
+[[ ${?} -eq 0 ]] && exit 0;
+
+#pausing audio 
 playerctl pause
-#mogrify -blur 0x10 png:- </tmp/lockpipe | composite -gravity South -geometry -20x1200 ~/.config/i3/ricknmorty.png png: /tmp/lockpipe2 &
-#i3lock -n -e -c 123456 #-i /tmp/lockpipe2 &
-betterlockscreen -u $(ls ~/Pictures/lock/* | sort -R | head -n1) -r $(xrandr | grep Screen | awk '{print $8 "x" $10}') &
-betterlockscreen -l dim 
 
-#echo $!>~/.i3lock
+# https://unsplash.com/oauth/applications
+T=`mktemp`
+curl \
+    -s \
+    -H "Authorization: ${ENV_UNSPLASH_KEY}" \
+    'https://api.unsplash.com/photos/random?query=dark+sky&orientation=landscape' \
+    | jq  ".urls.raw" \
+    | xargs curl --create-dirs -o ${T} && \
+    multilockscreen -u ${T} --dim 40 &
 
-#revert
+
+multilockscreen -l 
+
+#wait for the upate to be done.
+wait
+#and remove the downloaded pic, since its now in ~/.cache, betterlockscreen took care of that.
+rm ${T}
