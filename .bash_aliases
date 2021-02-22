@@ -107,4 +107,4 @@ alias sm="neomutt phd -s Statusupdate\ \#$(expr $(grep -r Statusupdate ~/.local/
 alias in="mupdf ~/dev/1research/cryptopt/paper/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.pdf &; disown; exit 0;"
 
 # connect to bluetooth headset
-alias bt='echo "power on\n connect 00:16:94:1E:40:92" | bluetoothctl && sleep 2 && echo "connect 00:16:94:1E:40:92" | bluetoothctl'
+alias bt='echo "power on\n connect ${ENV_PXC550_MAC}" | bluetoothctl && sleep 2 && echo "connect ${ENV_PXC550_MAC}" | bluetoothctl'
