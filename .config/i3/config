@@ -207,7 +207,7 @@ bar {
     #makes sure, that the tray icons are on the primary screen 
     tray_output primary
     #defines the data displayed in the tray
-        status_command i3blocks -c ~/.config/i3/i3blocks/i3blocks.conf
+    status_command i3blocks -c ~/.config/i3/i3blocks/i3blocks.conf
 }
 
 #for having st/xterm to load correct customizations
@@ -218,6 +218,6 @@ exec_always --no-startup-id mw -Y
 
 #Program shortcuts
 bindsym $mod+s exec --no-startup-id spotify
-bindsym $mod+m exec xterm -class neomutt neomutt
+bindsym $mod+m exec EDITOR=/usr/bin/vim xterm -class neomutt neomutt
 bindsym $mod+c exec --no-startup-id brave
 bindsym $mod+y exec --no-startup-id pavucontrol
