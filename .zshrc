@@ -21,7 +21,7 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$HOME/.local/share/gem/ruby/2.7.0/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/joel/.oh-my-zsh"
