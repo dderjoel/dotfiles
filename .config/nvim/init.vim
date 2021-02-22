@@ -242,7 +242,10 @@ augroup Binary
   au BufWritePost *.bin set nomod | endif
 augroup END!
 
+" LaTeX
 aug tex_ft_detection
     au!
     au FileType tex g:vimtex_compiler_progname = "nvr"
+    au FileType tex :noremap <leader>e i\emph{<C-c>wea}<C-c>
+aug end
 aug end
