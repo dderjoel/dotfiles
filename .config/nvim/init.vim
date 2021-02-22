@@ -51,9 +51,10 @@ call plug#end()
 " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_user_command = ['.git/', 'git ls-files -oc --exclude-standard']
 
-"enable the current line number plus relative numbers above and below
+"enable the current line number plus relative numbers above and below + git info if available. needs nvim>0.5
 set number
 set number relativenumber
+set signcolumn=number
 
 "enable syntax highlighting
 syntax on
