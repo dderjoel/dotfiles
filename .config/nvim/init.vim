@@ -40,6 +40,8 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 "provides small icons for lines, changed/added in git
 Plug 'airblade/vim-gitgutter'
+" enables git commit interface
+Plug 'jreybert/vimagit'
 
 "Completion for C/Cpp
 "Plug 'Valloric/YouCompleteMe'
