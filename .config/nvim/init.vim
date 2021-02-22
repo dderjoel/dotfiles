@@ -3,7 +3,7 @@ let g:ale_completion_enabled=1
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-surround'
-"Thems
+"Themes
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 
