@@ -18,7 +18,7 @@ macro index,pager f  "|urlscan -c \n"
 macro attach,compose f  "<pipe-entry> urlscan -c \n"
 
 #bind d to delete the message
-bind index d delete-message
+bind index,pager d delete-message
 bind index u noop
 bind index,pager,browser \cd half-down
 bind index,pager,browser \cu half-up
