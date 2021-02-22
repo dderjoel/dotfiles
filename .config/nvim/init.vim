@@ -1,5 +1,3 @@
-let g:ale_completion_enabled=1
-
 "Get vim.plug
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -11,53 +9,34 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-surround'
-"Themes
-Plug 'morhetz/gruvbox'
-Plug 'lifepillar/vim-solarized8'
 
-" Plug 'autozimu/LanguageClient-neovim', {
-"             \ 'branch': 'next',
-"             \ 'do': 'bash install.sh',
-"             \ }
-
-"complete for TS/C/...
+" completion / linting / tooling for TS / C / well basically all langs...
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 
 " This is the backend for coc-vimtex
 Plug 'lervag/vimtex'
 
-"file browser
-" Plug 'scrooloose/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" Plug 'ryanoasis/vim-devicons'
-
 " Shortcut for commenting a line
 Plug 'preservim/nerdcommenter'
-"async linter
-"Plug 'w0rp/ale'
 
 Plug 'ctrlpvim/ctrlp.vim' "fuzzy find files
 
-"formatter for c familiy
-" Plug 'rhysd/vim-clang-format'
-
+"Themes
+Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-solarized8'
 " this is for syntax highlighting
 Plug 'mboughaba/i3config.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'HerringtonDarkholme/yats.vim'
-"provides small icons for lines, changed/added in git
+
+" provides small icons for lines, changed/added in git
 Plug 'airblade/vim-gitgutter'
+
 " enables git commit interface
 Plug 'jreybert/vimagit'
 
-"Completion for C/Cpp
-"Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
-" ctrlp
-" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_user_command = ['.git/', 'git ls-files -oc --exclude-standard']
 
 "enable the current line number plus relative numbers above and below + git info if available. needs nvim>0.5
 set number
@@ -100,38 +79,8 @@ set inccommand=split
 nnoremap <Leader>k :%s/\<<C-r><C-w>\>//g<Left><Left>
 vnoremap <Leader>k y :%s/<C-r>"//g<Left><Left>
 
-
-"Language server specifications:
-" let g:LanguageClient_autoStart = 1
-"let g:LanguageClient_serverCommands = {
-" \ 'typescript': ['/usr/bin/javascript-typescript-stdio'],
-" \ }
-
-"autocmd Filetype typescript source ~/.vim/ftplugin/typescript.vim
-
 :nmap <space>e :CocCommand explorer<CR>
 :nmap <space>d :CocDiagnostics<CR>
-" nerd tree Settings
-" map <C-n> :NERDTreeToggle<CR>
-" let g:NERDTreeIgnore = ['^node_modules$']
-"
-" " sync open file with NERDTree
-" " Check if NERDTree is open or active
-" function! IsNERDTreeOpen()
-"   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-" endfunction
-"
-" " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" " file, and we're not in vimdiff
-" function! SyncTree()
-"   if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-"     NERDTreeFind
-"     wincmd p
-"   endif
-" endfunction
-
-" Highlight currently open buffer in NERDTree
-" autocmd BufEnter * call SyncTree()
 
 "Commenter Settings
 vmap <leader><space> <plug>NERDCommenterToggle
@@ -183,17 +132,10 @@ aug i3config_ft_detection
     au BufNewFile,BufRead ~/dotfiles/.config/i3/config set filetype=i3config
 aug end
 
-"let g:ale_fixers = {
-            "\ "*":['remove_trailing_lines', 'trim_whitespace'],
-            "\ 'javascript': ['eslint'],
-            "\ 'typescript': ['eslint']
-"\}
-"let g:ale_fix_on_save = 1
-"let g:ale_sign_error=">"
-"let g:ale_sign_warning="-"
-"let g:ale_lint_delay=1000
 
-"COC Settings
+" 
+" START COC Settings
+" 
 
 " prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -217,8 +159,9 @@ nmap <F2> <Plug>(coc-rename)
 
 nmap <silent> KK <Plug>(coc-definition)
 
-"END COC Settings
-
+"
+" END COC Settings
+"
 aug ts_ft_detection
     au!
     au BufNewFile,BufRead *.ts let b:ale_fixers=['eslint']
@@ -233,11 +176,7 @@ aug asm_ft_detection
     au BufNewFile,BufRead *.asm let  g:ale_nasm_nasm_options = "-f elf64"
 aug end
 
-
-" enable autoformat on save
-"autocmd FileType c ClangFormatAutoEnable -> commented, since this should be
-"done by coc
-aug json_ft_detection
+aug json_comment_syntax_setting
     au!
     au FileType json syntax match Comment +\/\/.\+$+
 aug end
@@ -255,13 +194,14 @@ augroup Binary
 augroup END!
 
 " LaTeX
-aug tex_ft_detection
+aug tex_settings
     au!
     au FileType tex g:vimtex_compiler_progname = "nvr"
     au FileType tex :noremap <leader>e i\emph{<C-c>wea}<C-c>
 aug end
 
-aug c_ft_detection
+" C
+aug c_macros
     au!
     function! SwitchSourceHeader()
         "update!
