@@ -68,6 +68,38 @@ ea(){
     done
 }
 
+upd () {
+    echo -e "\e[1;33mchecking aur\e[0m\n\n"
+    cd ~/aur
+    for folder in `ls -d */`
+    do
+        pushd ${folder} > /dev/null
+        echo -n ${folder}
+        git pull 2>&1 | grep --silent 'up to date'
+        if [[ $? -eq 1 ]]
+        then
+            makepkg --syncdeps --install --clean --noconfirm 2>&1 > /dev/null
+            if [[ $? -eq 0 ]] 
+                echo 
+            then 
+                echo " \e[0;32m updated \uf00c\e[0m" 
+            else 
+                echo " \e[0;31m update failed \uf00d\e[0m"
+            fi
+        else
+            echo " \e[0;32m already up to date \uf00c\e[0m"
+        fi
+        #clean untracked files, i.e. binaries
+        git clean -f
+        popd >/dev/null
+    done
+    echo -e "\e[1;33mUpdating Vim Plugins\e[0m\n\n"
+    nvim -c "PlugUpdate10 | quitall"
+    nvim -c "CocUpdateSync | quitall"
+    echo -e "\e[1;33mChecking general packages\e[0m\n\n"
+    sudo pacman -Syu
+}
+
 #display aliases
 alias wd="sh ~/dotfiles/screenlayout/default.screenlayout.sh"
 alias ws="sh ~/dotfiles/screenlayout/single.screenlayout.sh"
@@ -106,7 +138,7 @@ alias uu='ncu -u && npm i && npm update'
 
 alias sm="neomutt phd -s Statusupdate\ \#$(expr $(grep -r Statusupdate ~/.local/share/mail/uoa/Sent\ Items/cur | cut -d'#' -f2 | sort -g -u | tail -n1) + 1)"
 
-alias in="mupdf ~/dev/1research/cryptopt/paper/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.pdf &; disown; exit 0;"
+    alias in="mupdf ~/dev/1research/cryptopt/paper/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.pdf &; disown; exit 0;"
 
 # connect to bluetooth headset
 alias bt='echo "power on\n connect ${ENV_PXC550_MAC}" | bluetoothctl && sleep 2 && echo "connect ${ENV_PXC550_MAC}" | bluetoothctl'
