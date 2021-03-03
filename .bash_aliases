@@ -120,8 +120,7 @@ alias please='sudo $(fc -ln -1) '
 alias td="termdown -s "
 
 #alias for daily stand up
-alias lunch="termdown -s 12:07 && notify-send 'LUNCH' 'LUNCH' -i face-cool "
-alias ad="termdown -s 15:29 && notify-send 'advent' 'advent' -i face-cool "
+alias lunch="termdown -s 11:57 && notify-send 'LUNCH' 'LUNCH' -i ~/dotfiles/Pictures/icons/hamburger.png "
 
 #alias for starting x
 alias x="cd && startx"
