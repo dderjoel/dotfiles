@@ -46,7 +46,7 @@ set signcolumn=number
 "enable syntax highlighting
 syntax on
 
-"enable indentation based on plugins in ~/.vim/indent/*
+"enable indentation based on plugins 
 filetype plugin indent on
 
 "set color scheme
@@ -191,7 +191,13 @@ aug Binary
   au BufWritePre *.bin endif
   au BufWritePost *.bin if &bin | %!xxd
   au BufWritePost *.bin set nomod | endif
-augroup END!
+aug end
+
+" Autoindent on save for sh files
+aug format_sh
+  au!
+  au FileType sh au BufWritePre <buffer> :normal mggg=G`gzz
+aug end
 
 " LaTeX
 aug tex_settings
