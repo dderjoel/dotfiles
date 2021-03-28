@@ -182,7 +182,7 @@ aug json_comment_syntax_setting
 aug end
 
 " vim -b : edit binary using xxd-format!
-augroup Binary
+aug Binary
   au!
   au BufReadPre  *.bin let &bin=1
   au BufReadPost *.bin if &bin | %!xxd
