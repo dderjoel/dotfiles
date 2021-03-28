@@ -31,8 +31,8 @@ clc(){
     echo "Detroit   `TZ=America/Detroit date $fmt`"
     echo "EST       `TZ=EST date $fmt`"
     echo "Taipei    `TZ=Asia/Taipei date $fmt`"
-    echo "Berlin    `TZ=Europe/Berlin date $fmt`"
-    echo "Adeleaide `TZ=Australia/Adelaide date $fmt`"
+    echo "\e[0;32mBerlin \e[0m   `TZ=Europe/Berlin date $fmt`"
+    echo "Adelaide  `TZ=Australia/Adelaide date $fmt`"
 }
 
 # changes directory to the pysical location in case you are in a symlinked dir
