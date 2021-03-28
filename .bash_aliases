@@ -142,7 +142,11 @@ alias sm="neomutt phd -s Statusupdate\ \#$(expr $(grep -r Statusupdate ~/.local/
     alias in="mupdf ~/dev/1research/cryptopt/paper/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.pdf &; disown; exit 0;"
 
 # connect to bluetooth headset
-alias bt='echo "power on\n connect ${ENV_PXC550_MAC}" | bluetoothctl && sleep 2 && echo "connect ${ENV_PXC550_MAC}" | bluetoothctl'
+bt () {
+    echo "power on\n connect ${ENV_PXC550_MAC}" | bluetoothctl\
+        && sleep 2\
+        && echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
+    }
 
 #set git user to uni user
 alias gsu="git config user.email \"${ENV_GIT_USER_EMAIL_UNI}\" && git config user.name \"${ENV_GIT_USER_NAME_UNI}\" "
