@@ -145,7 +145,8 @@ alias sm="neomutt phd -s Statusupdate\ \#$(expr $(grep -r Statusupdate ~/.local/
 bt () {
     echo "power on\n connect ${ENV_PXC550_MAC}" | bluetoothctl\
         && sleep 2\
-        && echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
+        && echo "connect ${ENV_PXC550_MAC}" | bluetoothctl\
+        && pactl set-default-sink bluez_sink.$(tr ':' '_'<<<${ENV_PXC550_MAC}).a2dp_sink
     }
 
 #set git user to uni user
