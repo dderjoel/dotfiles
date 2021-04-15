@@ -96,10 +96,10 @@ upd () {
     echo -e "\e[1;33mUpdating Vim Plugins\e[0m\n\n"
     nvim -c "PlugUpdate10 | quitall"
     nvim -c "CocUpdateSync | quitall"
-    echo -e "\e[1;33mUpdating Oh My Zsh \e[0m\n\n"
-    omz update
     echo -e "\e[1;33mChecking general packages\e[0m\n\n"
     sudo pacman -Syu
+    echo -e "\e[1;33mUpdating Oh My Zsh \e[0m\n\n"
+    omz update
 }
 
 #display aliases
