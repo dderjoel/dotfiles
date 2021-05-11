@@ -120,6 +120,12 @@ alias please='sudo $(fc -ln -1) '
 
 # this is for a terminal countdown timer.
 alias td="termdown -s "
+# will put the remaining time in this tile, which is read by i3blocks
+tdd () {
+    file=~/.cache/i3blocks_timetonextmeeting
+    test -f ${file} && rm ${file}
+    screen  -d -m termdown --no-figlet -s ${1} -o ${file} 
+}
 
 #alias for daily stand up
 alias lunch="termdown -s 11:57 && notify-send 'LUNCH' 'LUNCH' -i ~/dotfiles/Pictures/icons/hamburger.png "
