@@ -216,6 +216,9 @@ exec_always --no-startup-id xrdb ~/.Xresources
 #initialize the mutt-wizard Sync... subsequent syncs are handled by cron, if the passphrase has been saved
 exec_always --no-startup-id mw -Y
 
+#initialize the lunch timer
+exec_always --no-startup-id screen -dm termdown --no-figlet -s 11:57 -o ~/.cache/i3blocks_timetolunch
+
 #Program shortcuts
 bindsym $mod+s exec --no-startup-id spotify
 bindsym $mod+m exec EDITOR=/usr/bin/vim xterm -class neomutt neomutt
