@@ -149,9 +149,8 @@ alias sm="neomutt phd -s Statusupdate\ \#$(expr $(grep -r Statusupdate ~/.local/
 
 # connect to bluetooth headset
 bt () {
-    echo "power on\n connect ${ENV_PXC550_MAC}" | bluetoothctl\
-        && sleep 1\
-        && echo "connect ${ENV_PXC550_MAC}" | bluetoothctl\
+    echo "power on\n connect ${ENV_PXC550_MAC}" | bluetoothctl \
+        && sleep 1 \
         && pactl set-default-sink bluez_sink.$(tr ':' '_'<<<${ENV_PXC550_MAC}).a2dp_sink
     }
 
