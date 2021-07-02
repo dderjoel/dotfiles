@@ -151,10 +151,17 @@ alias sm="neomutt phd -s Statusupdate\ \#$(expr $(grep -r Statusupdate ~/.local/
 
 # connect to bluetooth headset
 bt () {
-    echo "power on\n connect ${ENV_PXC550_MAC}" | bluetoothctl \
-        && sleep 1 \
-        && pactl set-default-sink bluez_sink.$(tr ':' '_'<<<${ENV_PXC550_MAC}).a2dp_sink
-    }
+    echo "power on" | bluetoothctl
+    echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
+    until  pactl list sinks | grep blue -q
+    do
+        # echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
+        sleep 1
+    done
+    # if power on yields 'Error.Busy'
+    # sudo rfkill unblock all
+    pactl set-default-sink bluez_sink.$(tr ':' '_'<<<${ENV_PXC550_MAC}).a2dp_sink
+}
 
 #set git user to uni user
 alias gsu="git config user.email \"${ENV_GIT_USER_EMAIL_UNI}\" && git config user.name \"${ENV_GIT_USER_NAME_UNI}\" "
