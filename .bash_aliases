@@ -124,7 +124,7 @@ alias td="termdown -s "
 tdd () {
     file=~/.cache/i3blocks_timetonextmeeting
     test -f ${file} && rm ${file}
-    screen  -dm termdown --no-figlet -s ${1} -o ${file} 
+    screen -dm termdown --quit-after 2 --no-figlet -s ${1} -o ${file} 
 }
 
 #alias for daily stand up
