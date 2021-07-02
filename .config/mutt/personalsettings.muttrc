@@ -27,3 +27,5 @@ bind pager G bottom
 
 #urgent on new mail
 set beep_new
+
+set signature = "/home/joel/.config/mutt/.signature"
