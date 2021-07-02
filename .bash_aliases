@@ -132,6 +132,8 @@ alias lunch="termdown -s 11:57 && notify-send 'LUNCH' 'LUNCH' -i ~/dotfiles/Pict
 
 #alias for starting x
 alias x="cd && startx"
+#alias for playing a ansible playbook
+alias play="ansible-playbook"
 
 # always use monday as first dow
 alias cal="cal -m -3"
