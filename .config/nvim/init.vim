@@ -25,6 +25,7 @@ Plug 'ctrlpvim/ctrlp.vim' "fuzzy find files
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 " this is for syntax highlighting
+Plug 'aklt/plantuml-syntax'
 Plug 'mboughaba/i3config.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -163,6 +164,13 @@ nmap <silent> KK <Plug>(coc-definition)
 " END COC Settings
 "
 aug ts_ft_detection
+" Default to svg make
+aug pu_ft_detection
+    au!
+    " au BufRead *.pu let g:plantuml_executable_script = "plantuml -tsvg"
+    au BufRead *.pu let &l:makeprg=g:plantuml_executable_script . " -tsvg %"
+aug end
+
     au!
     au BufNewFile,BufRead *.ts let b:ale_fixers=['eslint']
 aug end
