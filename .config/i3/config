@@ -224,4 +224,5 @@ exec_always --no-startup-id screen -dm termdown --no-figlet -s 11:57 -o ~/.cache
 bindsym $mod+s exec --no-startup-id spotify
 bindsym $mod+m exec EDITOR=/usr/bin/vim $terminal -class neomutt neomutt
 bindsym $mod+c exec --no-startup-id brave
-bindsym $mod+y exec --no-startup-id pavucontrol
+bindsym $mod+Shift+y exec --no-startup-id pavucontrol
+bindsym $mod+y exec --no-startup-id $terminal ncpamixer
