@@ -26,6 +26,7 @@ Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 " this is for syntax highlighting
 Plug 'aklt/plantuml-syntax'
+Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.sh' }
 Plug 'mboughaba/i3config.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'HerringtonDarkholme/yats.vim'
