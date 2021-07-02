@@ -163,7 +163,6 @@ nmap <silent> KK <Plug>(coc-definition)
 "
 " END COC Settings
 "
-aug ts_ft_detection
 " Default to svg make
 aug pu_ft_detection
     au!
@@ -171,8 +170,11 @@ aug pu_ft_detection
     au BufRead *.pu let &l:makeprg=g:plantuml_executable_script . " -tsvg %"
 aug end
 
+
+aug gyp_ft_detection
     au!
-    au BufNewFile,BufRead *.ts let b:ale_fixers=['eslint']
+    au BufNewFile,BufRead *.gyp set filetype=json
+    au BufNewFile,BufRead *.gyp syntax match Comment +\#.\+$+
 aug end
 "set flavor for vimtex, see :help vimtex-tex-flavor
 let g:tex_flavor = "latex"
