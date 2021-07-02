@@ -1,4 +1,5 @@
 set $mod Mod4
+set $terminal xterm
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -65,7 +66,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xterm 
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -173,7 +174,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 #open new free WS
 bindsym $mod+n exec --no-startup-id ~/.config/i3/open_empty_workspace.sh
-bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/open_empty_workspace.sh xterm
+bindsym $mod+Shift+Return exec --no-startup-id ~/.config/i3/open_empty_workspace.sh $terminal
 
 #move current window to a new WS and change to it
 bindsym $mod+Shift+n exec --no-startup-id ~/.config/i3/open_empty_workspace.sh "--move"
@@ -221,6 +222,6 @@ exec_always --no-startup-id screen -dm termdown --no-figlet -s 11:57 -o ~/.cache
 
 #Program shortcuts
 bindsym $mod+s exec --no-startup-id spotify
-bindsym $mod+m exec EDITOR=/usr/bin/vim xterm -class neomutt neomutt
+bindsym $mod+m exec EDITOR=/usr/bin/vim $terminal -class neomutt neomutt
 bindsym $mod+c exec --no-startup-id brave
 bindsym $mod+y exec --no-startup-id pavucontrol
