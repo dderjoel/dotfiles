@@ -54,8 +54,8 @@ set termguicolors
 colo gruvbox
 set background=dark
 
-"Remap capital Q to also close the terminal
-:command! -bar -bang Q quit<bang>
+"Remap capital Q to also close the buffer
+:command! -bar -bang Q quitall<bang>
 "map Q to not switch to ex-mode
 nmap Q qa
 
