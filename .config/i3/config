@@ -23,10 +23,6 @@ exec_always --no-startup-id xset r rate 140 80
 # see .custom.map.gz for info on how to enable that mapping in console as well.
 exec_always --no-startup-id xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-# Use pactl to adjust volume in PulseAudio.
-
 # set automatic screen saver timeout to 600seconds (10min)
 exec_always --no-startup-id xset s 600
 # set automatic display off to 30min
@@ -42,8 +38,6 @@ exec --no-startup-id ~/dotfiles/screenlayout/default.screenlayout.sh
 exec --no-startup-id nm-applet
 
 exec --no-startup-id ~/.fehbg
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
 exec_always --no-startup-id ~/.config/i3/i3-renameworkspaces/i3-renameworkspaces.pl -c ~/.config/i3/i3-renameworkspaces/config
 
 # Use pactl to adjust volume in PulseAudio.
@@ -217,7 +211,7 @@ exec_always --no-startup-id xrdb ~/.Xresources
 #initialize the mutt-wizard Sync... subsequent syncs are handled by cron, if the passphrase has been saved
 exec_always --no-startup-id mw -Y
 
-#initialize the lunch timer
+# initialize the lunch timer
 exec_always --no-startup-id screen -dm termdown --no-figlet -s 11:57 -o ~/.cache/i3blocks_timetolunch
 
 #Program shortcuts

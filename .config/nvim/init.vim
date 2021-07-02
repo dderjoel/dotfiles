@@ -187,7 +187,7 @@ let g:tex_flavor = "latex"
 aug asm_ft_detection
     au!
     au BufNewFile,BufRead *.asm set filetype=nasm
-    au BufNewFile,BufRead *.asm let  g:ale_nasm_nasm_options = "-f elf64"
+    au BufNewFile,BufRead *.asm let g:ale_nasm_nasm_options = "-f elf64"
 aug end
 
 aug json_comment_syntax_setting
