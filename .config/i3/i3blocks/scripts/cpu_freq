@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+f=$(lscpu | grep BogoMIPS | awk '{print $2}' | cut -f1 -d".")
+echo "${f} MHz"
