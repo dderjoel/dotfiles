@@ -25,18 +25,18 @@ alias gd="git diff"
 alias gp="git push"
 
 #workld clock function
-clc(){
-    fmt="+%A, %H:%M"
-    echo "UTC       `TZ=UTC/UTC date $fmt`"
-    echo "Detroit   `TZ=America/Detroit date $fmt`"
-    echo "EST       `TZ=EST date $fmt`"
-    echo "Taipei    `TZ=Asia/Taipei date $fmt`"
-    echo "\e[0;32mBerlin \e[0m   `TZ=Europe/Berlin date $fmt`"
-    echo "Adelaide  `TZ=Australia/Adelaide date $fmt`"
+clc() {
+  fmt="+%A, %H:%M"
+  echo "UTC       $(TZ=UTC/UTC date $fmt)"
+  echo "Detroit   $(TZ=America/Detroit date $fmt)"
+  echo "EST       $(TZ=EST date $fmt)"
+  echo "Taipei    $(TZ=Asia/Taipei date $fmt)"
+  echo "\e[0;32mBerlin \e[0m   $(TZ=Europe/Berlin date $fmt)"
+  echo "Adelaide  $(TZ=Australia/Adelaide date $fmt)"
 }
 
 # changes directory to the pysical location in case you are in a symlinked dir
-alias cdp='cd `pwd -P`' 
+alias cdp='cd `pwd -P`'
 # copies current wd into xclip
 alias cdx='pwd | xclip'
 # goes into dir from xclip
@@ -49,57 +49,52 @@ alias mount="sudo mount"
 alias umount="sudo umount"
 
 #clone something into ~aur folder
-clone(){
-    [[ -z ${1} ]] && return 1;
-    echo cloning\ ${1}
-    pushd ~/aur
-    git clone "https://aur.archlinux.org/$1"
-    cd "$1"
-    makepkg -si --noconfirm
-    popd
+clone() {
+  [[ -z ${1} ]] && return 1
+  echo cloning\ ${1}
+  pushd ~/aur
+  git clone "https://aur.archlinux.org/$1"
+  cd "$1"
+  makepkg -si --noconfirm
+  popd
 }
 
 #foreach helper
-ea(){
-    [[ ${#} -eq 0 ]] && echo "call like this: ls | ea wc -l\n then wc will be called like 'wc -l file1', then 'wc -l file2' "
-    while IFS= read -r line
-    do
-        $@ $line
-    done
+ea() {
+  [[ ${#} -eq 0 ]] && echo "call like this: ls | ea wc -l\n then wc will be called like 'wc -l file1', then 'wc -l file2' "
+  while IFS= read -r line; do
+    $@ $line
+  done
 }
 
-upd () {
-    echo -e "\e[1;33mchecking aur\e[0m\n\n"
-    cd ~/aur
-    for folder in `ls -d */`
-    do
-        pushd ${folder} > /dev/null
-        echo -n ${folder}
-        git pull 2>&1 | grep --silent 'up to date'
-        if [[ $? -eq 1 ]]
-        then
-            makepkg --syncdeps --install --clean --noconfirm 2>&1 > /dev/null
-            if [[ $? -eq 0 ]] 
-                echo 
-            then 
-                echo " \e[0;32m updated \uf00c\e[0m" 
-            else 
-                echo " \e[0;31m update failed \uf00d\e[0m"
-            fi
-        else
-            echo " \e[0;32m already up to date \uf00c\e[0m"
-        fi
-        #clean untracked files, i.e. binaries
-        git clean -f
-        popd >/dev/null
-    done
-    echo -e "\e[1;33mUpdating Vim Plugins\e[0m\n\n"
-    nvim -c "PlugUpdate10 | quitall"
-    nvim -c "CocUpdateSync | quitall"
-    echo -e "\e[1;33mChecking general packages\e[0m\n\n"
-    sudo pacman -Syu
-    echo -e "\e[1;33mUpdating Oh My Zsh \e[0m\n\n"
-    omz update
+upd() {
+  echo -e "\e[1;33mchecking aur\e[0m\n\n"
+  cd ~/aur
+  for folder in $(ls -d */); do
+    pushd ${folder} >/dev/null
+    echo -n ${folder}
+    git pull 2>&1 | grep --silent 'up to date'
+    if [[ $? -eq 1 ]]; then
+      makepkg --syncdeps --install --clean --noconfirm 2>&1 >/dev/null
+      if [[ $? -eq 0 ]]; then
+        echo " \e[0;32m updated \uf00c\e[0m"
+      else
+        echo " \e[0;31m update failed \uf00d\e[0m"
+      fi
+    else
+      echo " \e[0;32m already up to date \uf00c\e[0m"
+    fi
+    #clean untracked files, i.e. binaries
+    git clean -f
+    popd >/dev/null
+  done
+  echo -e "\e[1;33mUpdating Vim Plugins\e[0m\n\n"
+  nvim -c "PlugUpdate10 | quitall"
+  nvim -c "CocUpdateSync | quitall"
+  echo -e "\e[1;33mChecking general packages\e[0m\n\n"
+  sudo pacman -Syu
+  echo -e "\e[1;33mUpdating Oh My Zsh \e[0m\n\n"
+  omz update
 }
 
 #display aliases
@@ -121,10 +116,10 @@ alias please='sudo $(fc -ln -1) '
 # this is for a terminal countdown timer.
 alias td="termdown -s "
 # will put the remaining time in this tile, which is read by i3blocks
-tdd () {
-    file=~/.cache/i3blocks_timetonextmeeting
-    test -f ${file} && rm ${file}
-    screen -dm termdown --quit-after 2 --no-figlet -s ${1} -o ${file} 
+tdd() {
+  file=~/.cache/i3blocks_timetonextmeeting
+  test -f ${file} && rm ${file}
+  screen -dm termdown --quit-after 2 --no-figlet -s ${1} -o ${file}
 }
 
 #alias for daily stand up
@@ -147,20 +142,19 @@ alias uu='ncu -u && npm i && npm update'
 
 alias sm="neomutt phd -s Statusupdate\ \#$(expr $(grep -r Statusupdate ~/.local/share/mail/uoa/Sent\ Items/cur | cut -d'#' -f2 | sort -g -u | tail -n1) + 1)"
 
-    alias in="mupdf ~/dev/1research/cryptopt/doc/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.pdf &; disown; exit 0;"
+alias in="mupdf ~/dev/1research/cryptopt/doc/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.pdf &; disown; exit 0;"
 
 # connect to bluetooth headset
-bt () {
-    echo "power on" | bluetoothctl
-    echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
-    until  pactl list sinks | grep blue -q
-    do
-        # echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
-        sleep 1
-    done
-    # if power on yields 'Error.Busy'
-    # sudo rfkill unblock all
-    pactl set-default-sink bluez_sink.$(tr ':' '_'<<<${ENV_PXC550_MAC}).a2dp_sink
+bt() {
+  echo "power on" | bluetoothctl
+  echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
+  until pactl list sinks | grep blue -q; do
+    # echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
+    sleep 1
+  done
+  # if power on yields 'Error.Busy'
+  # sudo rfkill unblock all
+  pactl set-default-sink bluez_sink.$(tr ':' '_' <<<${ENV_PXC550_MAC}).a2dp_sink
 }
 
 #set git user to uni user
