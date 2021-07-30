@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-
-f=$(lscpu | grep BogoMIPS | awk '{print $2}' | cut -f1 -d".")
-echo "${f} MHz"
+hz=$(cat /sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq)
+mhz=$((hz / 1000))
+echo "${mhz} MHz"
