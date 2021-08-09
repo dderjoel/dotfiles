@@ -70,7 +70,7 @@ ea() {
 upd() {
   echo -e "\e[1;33mchecking aur\e[0m\n\n"
   cd ~/aur || exit 1
-  while IFS= read -r -d '' folder; do
+  while read -r folder; do
     pushd "${folder}" >/dev/null || exit 1
     echo -n "${folder}"
     git pull 2>&1 | grep --silent 'up to date'
