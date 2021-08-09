@@ -76,9 +76,9 @@ upd() {
     git pull 2>&1 | grep --silent 'up to date'
     if [[ $? -eq 1 ]]; then
       if [[ $(makepkg --syncdeps --install --clean --noconfirm >/dev/null 2>/dev/null) ]]; then
-        echo " \e[0;32m updated \uf00c\e[0m"
-      else
         echo " \e[0;31m update failed \uf00d\e[0m"
+      else
+        echo " \e[0;32m updated \uf00c\e[0m"
       fi
     else
       echo " \e[0;32m already up to date \uf00c\e[0m"
