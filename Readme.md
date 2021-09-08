@@ -1,8 +1,8 @@
 
 ## How to use:
 
-1. Clone with submodules: `git clone --recursive git@github.com:dderjoel/dotfiles.git ~/dotfiles`
-1. Apply patched: `cd ~/dotfiles/.config/i3/i3blocks/i3blocks-contrib && git apply ../battery.patch`
+1. Clone with submodules: `git clone --recursive https://github.com/dderjoel/dotfiles.git ~/dotfiles`
+1. Apply patches: `cd ~/dotfiles/.config/i3/i3blocks/i3blocks-contrib && git apply ../battery.patch`
 
 
 
@@ -11,7 +11,7 @@
 
 For i3-rename-workspaces
 --
-1. From the aur: `perl-linux-inotify2`
+1. From the AUR for i3-rename-workspaces: `perl-linux-inotify2`
 
 ## TODO:
 1. set up scripts for `ln -s`'s
