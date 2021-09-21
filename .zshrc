@@ -90,3 +90,9 @@ fi
 if [ -f /etc/bash.command-not-found ]; then
         . /etc/bash.command-not-found
 fi
+
+# keyboard layout: use as a base the intl-edition of us-querty
+# map the caps button to the escape key
+# map ALT+oua to german umlauts
+# direct err to null to get rid of warnings of missing keycodes
+xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null

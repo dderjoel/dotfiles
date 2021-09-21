@@ -15,19 +15,6 @@ set $urgent-bg-color     #E53935
 
 #set keyboard refreshrate
 exec_always --no-startup-id xset r rate 140 80
-
-# keyboard layout: use as a base the intl-edition of us-querty
-# map the caps button to the escape key
-# map ALT+oua to german umlauts
-# pipe to dev null to get rid of warnings of missing keycodes
-# see .custom.map.gz for info on how to enable that mapping in console as well.
-exec_always --no-startup-id xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
-
-# set automatic screen saver timeout to 600seconds (10min)
-exec_always --no-startup-id xset s 600
-# set automatic display off to 30min
-exec_always --no-startup-id xset dpms 1800 1800 1800
-exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/lock_screen.sh --nofork
 bindsym Pause exec --no-startup-id xset s activate
 
 #set initial screenlayout
@@ -204,9 +191,6 @@ bar {
     #defines the data displayed in the tray
     status_command i3blocks -c ~/.config/i3/i3blocks/i3blocks.conf
 }
-
-#for having st/xterm to load correct customizations
-exec_always --no-startup-id xrdb ~/.Xresources
 
 #initialize the mutt-wizard Sync... subsequent syncs are handled by cron, if the passphrase has been saved
 exec_always --no-startup-id mw -Y
