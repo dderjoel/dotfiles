@@ -50,6 +50,9 @@ bindsym $mod+Return exec $terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# take a screenshot
+bindsym Print exec scrot
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
