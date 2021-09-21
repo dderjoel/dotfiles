@@ -44,7 +44,6 @@ alias cdpp='cd `xclip -o`'
 
 #sudo aliases
 alias pacman='sudo pacman'
-alias docker="sudo docker"
 alias mount="sudo mount"
 alias umount="sudo umount"
 
