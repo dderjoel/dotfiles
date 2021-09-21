@@ -16,6 +16,9 @@ Plug 'neoclide/coc.nvim', {'branch':'release'}
 "sh formatter (pacman -S shfmt)
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 
+"debuggger
+Plug 'puremourning/vimspector'
+
 " This is the backend for coc-vimtex
 Plug 'lervag/vimtex'
 
@@ -170,6 +173,50 @@ nmap <silent> KK <Plug>(coc-definition)
 "
 " END COC Settings
 "
+
+" vimspector
+"https://github.com/puremourning/vimspector#human-mode
+fun! GotoWindow(id)
+  :call win_gotoid(a:id)
+endfun
+func! AddToWatch()
+  let word = expand("<cexpr>")
+  call vimspector#AddWatch(word)
+endfunction
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_sidebar_width = 60
+nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
+nnoremap <leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
+nnoremap <leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
+nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
+nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
+
+nnoremap <leader>da :call vimspector#Launch()<CR>
+nnoremap <leader>di :call AddToWatch()<CR>
+nnoremap <leader>dx :call vimspector#Reset()<CR>
+nnoremap <leader>dX :call vimspector#ClearBreakpoints()<CR>
+nnoremap <c-k> :call vimspector#StepOut()<CR>
+nnoremap <c-l> :call vimspector#StepInto()<CR>
+nnoremap <c-j> :call vimspector#StepOver()<CR>
+nnoremap <c-n> :call vimspector#Continue()<CR>
+nnoremap <leader>d_ :call vimspector#Restart()<CR>
+nnoremap <leader>dn :call vimspector#Continue()<CR>
+nnoremap <leader>drc :call vimspector#RunToCursor()<CR>
+nnoremap <leader>dh :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <leader>de :call vimspector#ToggleConditionalBreakpoint()<CR>
+let g:vimspector_sign_priority = {
+  \    'vimspectorBP':         998,
+  \    'vimspectorBPCond':     997,
+  \    'vimspectorBPDisabled': 996,
+  \    'vimspectorPC':         999,
+  \ }
+" mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
+
+
 " Default to svg make
 aug pu_ft_detection
     au!
