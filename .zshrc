@@ -20,16 +20,7 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$HOME/.local/share/gem/ruby/2.7.0/bin
-
-# Path to your oh-my-zsh installation.
-export ZSH="/home/joel/.oh-my-zsh"
-
-ZSH_THEME_RANDOM_QUIET="yes"
 ZSH_THEME="ys"
-ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "pygmalion" "ys" "agnoster" )
-
 CASE_SENSITIVE="true"
 # enable command auto-correction.
 #ENABLE_CORRECTION="true"
@@ -51,23 +42,8 @@ plugins=(
   ssh-agent
 )
 
+
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-export MANPATH="/usr/local/man:$MANPATH"
-
-# set language environment
-export LANG=en_US.UTF-8
-
-export EDITOR='vim'
-export BROWSER='/usr/bin/firefox-developer-edition'
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# sourcing personal keys
-source ~/.config/keys.env
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
