@@ -270,6 +270,7 @@ aug tex_settings
     au!
     au FileType tex g:vimtex_compiler_progname = "nvr"
     au FileType tex :noremap <leader>e i\emph{<C-c>wea}<C-c>
+    au FileType tex set tw=180
 aug end
 
 " C
