@@ -14,15 +14,15 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
 bindsym Pause exec --no-startup-id xset s activate
+exec --no-startup-id ~/dotfiles/screenlayout/auto.sh
+# set the wallpaper
+exec_always --no-startup-id ~/.fehbg
 
-#set initial screenlayout
-exec --no-startup-id ~/dotfiles/screenlayout/default.screenlayout.sh
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-exec --no-startup-id ~/.fehbg
 exec_always --no-startup-id ~/.config/i3/i3-renameworkspaces/i3-renameworkspaces.pl -c ~/.config/i3/i3-renameworkspaces/config
 
 # Use pactl to adjust volume in PulseAudio.
