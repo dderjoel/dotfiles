@@ -13,8 +13,6 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
-#set keyboard refreshrate
-exec_always --no-startup-id xset r rate 140 80
 bindsym Pause exec --no-startup-id xset s activate
 
 #set initial screenlayout
