@@ -13,6 +13,9 @@ Plug 'tpope/vim-surround'
 " completion / linting / tooling for TS / C / well basically all langs...
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 
+"sh formatter (pacman -S shfmt)
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
+
 " This is the backend for coc-vimtex
 Plug 'lervag/vimtex'
 
@@ -207,10 +210,12 @@ aug Binary
   au BufWritePost *.bin set nomod | endif
 aug end
 
-" Autoindent on save for sh files
+" Autoformat on save for sh files
 aug format_sh
   au!
-  au FileType sh au BufWritePre <buffer> :normal mggg=G`gzz
+  "use 2 spaces instead of tabs"
+  let g:shfmt_extra_args = '-i 2'
+  let g:shfmt_fmt_on_save = 1
 aug end
 
 " LaTeX
