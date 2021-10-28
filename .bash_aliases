@@ -28,11 +28,12 @@ alias gp="git push"
 clc() {
   fmt="+%A, %H:%M"
   echo "UTC       $(TZ=UTC/UTC date "${fmt}")"
-  echo "Detroit   $(TZ=America/Detroit date "${fmt}")"
+  echo "Michigan  $(TZ=US/Michigan date "${fmt}")"
   echo "EST       $(TZ=EST date "${fmt}")"
   echo "Taipei    $(TZ=Asia/Taipei date "${fmt}")"
   echo "\e[0;32mBerlin \e[0m   $(TZ=Europe/Berlin date "${fmt}")"
   echo "Adelaide  $(TZ=Australia/Adelaide date "${fmt}")"
+  echo "MIT       $(TZ=US/Eastern date "${fmt}")"
 }
 
 # changes directory to the pysical location in case you are in a symlinked dir
