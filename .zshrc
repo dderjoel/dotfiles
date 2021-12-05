@@ -74,5 +74,5 @@ fi
 xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
 # set the typematic delay
 # xset r rate _delay_ _rate_
-xset r rate 140 80
+test -n $DISPLAY && xset r rate 140 80
 
