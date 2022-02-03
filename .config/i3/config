@@ -91,10 +91,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+b split h
 
-# split in vertical orientation
+# split in vertical/horizontal orientation
+bindsym $mod+Shift+v split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
@@ -202,6 +201,6 @@ exec_always --no-startup-id screen -dm termdown --no-figlet -s 11:57 -o ~/.cache
 #Program shortcuts
 bindsym $mod+s exec --no-startup-id spotify
 bindsym $mod+m exec EDITOR=/usr/bin/vim $terminal -class neomutt neomutt
-bindsym $mod+c exec --no-startup-id brave
+bindsym $mod+b exec --no-startup-id brave
 bindsym $mod+Shift+y exec --no-startup-id pavucontrol
 bindsym $mod+y exec --no-startup-id $terminal ncpamixer
