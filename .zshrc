@@ -57,11 +57,6 @@ set -o vi
 #set the ^R for recursive search althouth we have the vi-mode in the shell
 bindkey '^R' history-incremental-search-backward
 
-if [ -f ~/todo ]
-then 
-    cat ~/todo
-fi
-
 # add bash-insulter
 if [ -f /etc/bash.command-not-found ]; then
         . /etc/bash.command-not-found
