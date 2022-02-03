@@ -43,7 +43,7 @@ plugins=(
 )
 
 
-source $ZSH/oh-my-zsh.sh
+test -n "${ZSH}" && source $ZSH/oh-my-zsh.sh
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -74,5 +74,5 @@ fi
 xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
 # set the typematic delay
 # xset r rate _delay_ _rate_
-test -n $DISPLAY && xset r rate 140 80
+test -n "$DISPLAY" && xset r rate 140 80
 
