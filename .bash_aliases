@@ -72,6 +72,7 @@ upd() {
   while read -r folder; do
     pushd "${folder}" >/dev/null || exit 1
     echo -n "${folder}"
+    git checkout . >/dev/null 2>&1
     git pull 2>&1 | grep --silent 'up to date'
     if [[ $? -eq 1 ]]; then
       if [[ $(makepkg --syncdeps --install --clean --noconfirm >/dev/null 2>/dev/null) ]]; then
