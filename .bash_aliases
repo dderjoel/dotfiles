@@ -28,7 +28,6 @@ alias gp="git push"
 clc() {
   fmt="+%A, %H:%M"
   echo "UTC       $(TZ=UTC/UTC date "${fmt}")"
-  echo "Michigan  $(TZ=US/Michigan date "${fmt}")"
   echo "EST       $(TZ=EST date "${fmt}")"
   echo "Taipei    $(TZ=Asia/Taipei date "${fmt}")"
   echo "\e[0;32mBerlin \e[0m   $(TZ=Europe/Berlin date "${fmt}")"
