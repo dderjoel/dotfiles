@@ -71,7 +71,7 @@ fi
 # direct err to null to get rid of warnings of missing keycodes
 xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
 # Check if Caps Lock is on, and if it is, use xdotool to disable it
-xset q |grep -q Caps\ Lock:\ \ \ on && xdotool key Caps_Lock
+test -n "$DISPLAY" && xset q | grep -q Caps\ Lock:\ \ \ on && xdotool key Caps_Lock
 # set the typematic delay
 # xset r rate _delay_ _rate_
 test -n "$DISPLAY" && xset r rate 140 80
