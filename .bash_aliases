@@ -86,7 +86,7 @@ upd() {
     #clean untracked files, i.e. binaries
     git clean -f
     popd >/dev/null || exit 1
-  done < <(find . -maxdepth 1 -mindepth 1 -type d -printf "%f\n")
+  done < <(find . -maxdepth 1 -mindepth 1 -type d -printf "%f\n" | sort)
   echo -e "\e[1;33mUpdating Vim Plugins\e[0m\n\n"
   nvim -c "PlugUpdate10 | quitall"
   nvim -c "CocUpdateSync | quitall"
