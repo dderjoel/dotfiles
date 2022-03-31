@@ -25,6 +25,8 @@ ZSH_THEME="ys"
 CASE_SENSITIVE="true"
 # enable command auto-correction.
 #ENABLE_CORRECTION="true"
+# then set the LScolors
+eval $(dircolors ~/dotfiles/dircolors.256dark)
 
 # display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
