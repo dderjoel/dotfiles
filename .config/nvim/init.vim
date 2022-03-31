@@ -43,6 +43,8 @@ Plug 'airblade/vim-gitgutter'
 " enables git commit interface
 Plug 'jreybert/vimagit'
 
+"coq
+Plug 'whonore/Coqtail'
 call plug#end()
 
 
