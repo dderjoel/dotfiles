@@ -145,14 +145,26 @@ alias in="mupdf ~/dev/1research/cryptopt/doc/64-ia-32-architectures-software-dev
 
 # connect to bluetooth headset
 bt() {
+  sudo rfkill block bluetooth
+  sleep 0.5
+  sudo rfkill unblock bluetooth
+  # sudo systemctl restart bluetooth
+  sleep 2.5
   echo "power on" | bluetoothctl
+  sleep 0.2
   echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
+  sleep 0.5
+  echo -n "waiting-"
   until pactl list sinks | grep blue -q; do
-    # echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
-    sleep 1
+    printf "\b|"
+    sleep 0.25
+    printf "\b-"
+    sleep 0.25
   done
   # if power on yields 'Error.Busy'
   # sudo rfkill unblock all
+  # rfkill block bluetooth
+  # rfkill unblock bluetooth
   pactl set-default-sink "bluez_sink.$(tr ':' '_' <<<"${ENV_PXC550_MAC}").a2dp_sink"
 }
 
