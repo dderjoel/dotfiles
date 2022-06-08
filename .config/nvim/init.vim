@@ -51,7 +51,6 @@ call plug#end()
 "enable the current line number plus relative numbers above and below + git info if available. needs nvim>0.5
 set number
 set number relativenumber
-set signcolumn=number
 
 "enable syntax highlighting
 syntax on
@@ -63,6 +62,13 @@ filetype plugin indent on
 set termguicolors
 colo gruvbox
 set background=dark
+
+"configure git gutter (colors)
+set signcolumn=no
+highlight GitGutterAddLineNr    guifg=#009900 ctermfg=2
+highlight GitGutterChangeLineNr guifg=#bbbb00 ctermfg=3
+highlight GitGutterDeleteLineNr guifg=#ff2222 ctermfg=1
+let g:gitgutter_highlight_linenrs=1
 
 "Remap capital Q to also close the buffer
 :command! -bar -bang Q quitall<bang>
