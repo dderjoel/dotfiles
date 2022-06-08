@@ -65,9 +65,11 @@ set background=dark
 
 "configure git gutter (colors)
 set signcolumn=no
-highlight GitGutterAddLineNr    guifg=#009900 ctermfg=2
-highlight GitGutterChangeLineNr guifg=#bbbb00 ctermfg=3
-highlight GitGutterDeleteLineNr guifg=#ff2222 ctermfg=1
+highlight GitGutterAddLineNr          guifg=#009900 guibg=#325432 ctermfg=2
+highlight GitGutterChangeLineNr       guifg=#bbbb00 guibg=#68684b ctermfg=3
+highlight GitGutterDeleteLineNr       guifg=#ff2222 guibg=#e9b0b0 ctermfg=1
+highlight GitGutterChangeDeleteLineNr guifg=#bb5555 guibg=#332222 ctermfg=1
+
 let g:gitgutter_highlight_linenrs=1
 
 "Remap capital Q to also close the buffer
