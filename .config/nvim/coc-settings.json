@@ -2,13 +2,13 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "c",
     "cpp",
-    "javascript",
-    "typescript",
-    "vue",
-    "html",
-    "json",
     "css",
-    "scss"
+    "html",
+    "javascript",
+    "json",
+    "scss",
+    "typescript",
+    "vue"
   ],
   "vetur.experimental.templateInterpolationService": true,
   "vetur.useWorkspaceDependencies": true,
