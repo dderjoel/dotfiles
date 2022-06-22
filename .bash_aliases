@@ -155,7 +155,7 @@ bt() {
   echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
   sleep 0.5
   echo -n "waiting-"
-  until pactl list sinks | grep blue -q; do
+  until pactl list sinks | grep "Name: bluez" -q; do
     printf "\b|"
     sleep 0.25
     printf "\b-"
@@ -165,8 +165,17 @@ bt() {
   # sudo rfkill unblock all
   # rfkill block bluetooth
   # rfkill unblock bluetooth
-  pactl set-default-sink "bluez_sink.$(tr ':' '_' <<<"${ENV_PXC550_MAC}").a2dp_sink"
+  pactl set-default-sink "$(pactl list sinks | grep "Name: bluez" | awk '{print $2}')"
 }
 
 #set git user to uni user
 alias gsu='git config user.email \"${ENV_GIT_USER_EMAIL_UNI}\" && git config user.name \"${ENV_GIT_USER_NAME_UNI}\" '
+at() {
+  t="${1:-bt}"
+  make check -C ~/dev/4github/project-assemblyline/repo TESTS="/tmp/${t}.tap"
+}
+I=" --inspect-brk=12345 "
+export I
+pil() {
+  ssh pil ./fix_exportfs.sh
+}
