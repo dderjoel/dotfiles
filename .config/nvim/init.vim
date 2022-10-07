@@ -71,6 +71,10 @@ highlight GitGutterDeleteLineNr       guifg=#ff2222 guibg=#e9b0b0 ctermfg=1
 highlight GitGutterChangeDeleteLineNr guifg=#bb5555 guibg=#332222 ctermfg=1
 
 let g:gitgutter_highlight_linenrs=1
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+nmap ghs <Plug>(GitGutterStageHunk)
+nmap ghu <Plug>(GitGutterUndoHunk)
 
 "Remap capital Q to also close the buffer
 :command! -bar -bang Q quitall<bang>
