@@ -1,22 +1,21 @@
 {
-    "classes": {
-        "firefox": "Firefox ",
-            "firefoxdeveloperedition": "Devfox <span foreground='#0076e6'></span>",
-            "brave-browser": "<span foreground='#1EBBEE'> </span> Brave",
-            "xterm": "<span foreground='white'></span>",
-            "zoom":"<span background='BlueViolet' foreground='Gold'> Zoom</span>",
-            "chromium": "<span foreground='Green'>Chrome </span>",
-            "spotify":"<span background='#1DB054' foreground='white'> Spotify</span>",
-            "mendeley desktop": "<span background='#AAAAAA' foreground='#CC3F3F'> Mendeley</span>",
-            "code":"<span foreground='lime' background='darkblue'>VS Code </span>",
-            "signal beta":"<span foreground='white' background='#3333DD'> Signal</span>",
-            "neomutt":"<span foreground='white' background='#5555FF'> Mail</span>",
-            "pavucontrol":"<span foreground='lime' background='darkblue'> Ctl</span>"
-    },    
-        "titles":{
-            "nvim":"<span foreground='#019833'>\uf27d</span>"
-        },
-        "instances": {
-        }
-    ,"roles":{}
+  "classes": {
+    "firefox": "Firefox ",
+    "firefoxdeveloperedition": "Devfox <span foreground='#0076e6'></span>",
+    "brave-browser": "<span foreground='#1EBBEE'> </span> Brave",
+    "xterm": "<span foreground='white'></span>",
+    "chromium": "<span foreground='Green'>Chrome </span>",
+    "spotify": "<span background='#1DB054' foreground='white'> Spotify</span>",
+    "zathura": "<span background='#AAAAAA' foreground='#CC3F3F'> Zathura</span>",
+    "code": "<span foreground='lime' background='darkblue'>VS Code </span>",
+    "signal beta": "<span foreground='white' background='#3333DD'> Signal</span>",
+    "neomutt": "<span foreground='white' background='#5555FF'> Mail</span>",
+    "pavucontrol": "<span foreground='lime' background='darkblue'> Ctl</span>"
+  },
+  "titles": {
+    "nvim": "<span foreground='#019833'></span>",
+    "zoom": "<span background='BlueViolet' foreground='Gold'> Zoom</span>"
+  },
+  "instances": {},
+  "roles": {}
 }

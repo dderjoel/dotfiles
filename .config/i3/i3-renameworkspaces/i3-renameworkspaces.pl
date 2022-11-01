@@ -47,15 +47,27 @@ sub recurse {
         }        
     }
     if ($$parent{'window_properties'}) {
+        my $json = $$parent{'window_properties'};
+        # for debugging (find hint here to print the json)
+        # https://stackoverflow.com/questions/60229863/print-json-objects-using-perl#60231213
+        # print "title ".$$parent{'window_properties'}{'title'};
+
         my $title = (split ' ', lc($$parent{'window_properties'}{'title'}))[0];
-        my $role = lc($$parent{'window_properties'}{'window_role'});
+        my $role = lc($$parent{'window_properties'}{'window_role'} || ' ');
         my $instance = lc($$parent{'window_properties'}{'instance'});
         my $class = lc($$parent{'window_properties'}{'class'});
+            
         my $name = $$config{'titles'}{$title} ||
                    $$config{'roles'}{$role} ||
                    $$config{'instances'}{$instance} ||
                    $$config{'classes'}{$class} ||
-                   lc($class);
+                   $class;
+
+        # if there is a '?' in the name, we want to use the $title instead (note, no lc()-call)
+        if ( (rindex $name, '?') ne -1 ){
+            $name = (split ' ', $$parent{'window_properties'}{'title'})[0];
+        }
+
         push(@$windows, $name) if !grep {$_ eq $name} @$windows;
     }
     foreach (@{$$parent{'nodes'}})          { recurse($_, $wss, $windows) };
