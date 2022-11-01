@@ -24,9 +24,9 @@ alias gs="git status"
 alias gd="git diff"
 alias gp="git push"
 
-#workld clock function
+#world clock function
 clc() {
-  fmt="+%A, %H:%M"
+  fmt="+%A %dth , %H:%M"
   echo "UTC       $(TZ=UTC/UTC date "${fmt}")"
   echo "EST       $(TZ=EST date "${fmt}")"
   echo "Taipei    $(TZ=Asia/Taipei date "${fmt}")"
