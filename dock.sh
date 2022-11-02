@@ -26,10 +26,12 @@ case "${ACTION}" in
   run_cmd "notify-send Dock attached"
   # run_cmd "sh ~/dotfiles/screenlayout/auto.sh"
   run_cmd "sh /home/${user}/dotfiles/screenlayout/default.screenlayout.sh"
+  run_cmd "nmcli radio wifi off"
   ;;
 "remove")
   run_cmd "notify-send Dock removed"
   run_cmd "sh /home/${user}/dotfiles/screenlayout/single.screenlayout.sh"
+  run_cmd "nmcli radio wifi on"
   ;;
 *)
   run_cmd "notify-send Dock 'called with ${ACTION}'"
