@@ -8,12 +8,15 @@ if [[ $(id -u) -ne 0 ]]; then
   exit 1
 fi
 
-echo executed >>/tmp/dock.log
+echo "executed ${1}" >>/tmp/dock.log
 date >>/tmp/dock.log
+uid=1000
+user="$(grep ${uid} /etc/passwd | cut -d':' -f1)"
 
 run_cmd() {
-  cmd=$1
-  runuser -l "$(grep 1000 /etc/passwd | cut -d':' -f1)" -c "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus ${cmd}"
+  cmd="XAUTHORITY=/home/${user}/.Xauthority DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${uid}/bus ${1}"
+  echo doing "${cmd}" | tee -a /tmp/dock.log
+  runuser -l "${user}" -c "${cmd}"
 }
 
 ACTION=${1}
@@ -21,10 +24,12 @@ ACTION=${1}
 case "${ACTION}" in
 "add")
   run_cmd "notify-send Dock attached"
-  sh ~/dotfiles/screenlayout/default.screenlayout.sh
+  # run_cmd "sh ~/dotfiles/screenlayout/auto.sh"
+  run_cmd "sh /home/${user}/dotfiles/screenlayout/default.screenlayout.sh"
   ;;
 "remove")
   run_cmd "notify-send Dock removed"
+  run_cmd "sh /home/${user}/dotfiles/screenlayout/single.screenlayout.sh"
   ;;
 *)
   run_cmd "notify-send Dock 'called with ${ACTION}'"

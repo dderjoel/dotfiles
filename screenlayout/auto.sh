@@ -30,9 +30,11 @@ done
 
 echo numconnected_in_auto $num_connected >>/home/joel/dotfiles/screenlayout/invoked.log
 if [[ ${num_connected} -eq 3 ]]; then
+  echo doing default
   ~/dotfiles/screenlayout/default.screenlayout.sh
   exit 0
 else
+  echo doing single
   ~/dotfiles/screenlayout/single.screenlayout.sh
   exit 0
 fi
