@@ -144,10 +144,30 @@ alias uu='ncu -u && npm i && npm update'
 
 alias sm='neomutt phd -s Statusupdate\ \#$(expr $(grep -r Statusupdate ~/.local/share/mail/uoa/Sent\ Items/cur | cut -d"#" -f2 | sort -g -u | tail -n1) + 1)'
 
-alias in="mupdf ~/dev/1research/cryptopt/doc/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.pdf &; disown; exit 0;"
+alias in="mupdf ~/dev/1research/cryptopt-bb/doc/64-ia-32-architectures-software-developer-instruction-set-reference-manual-325383.pdf &!; exit 0"
+alias in2="mupdf ~/dev/1research/cryptopt-bb/doc/64-ia-32-architectures-software-developer-instruction-set-reference-manual-2021.pdf &!; exit 0"
 
 # connect to bluetooth headset
 bt() {
+  if echo "show" | bluetoothctl | grep "Powered: no" -q; then
+    echo "power on" | bluetoothctl
+    sleep 0.5
+  fi
+  echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
+  echo -n "waiting-"
+  sleep 2.5
+
+  until pactl list sinks | grep "Name: bluez" -q; do
+    printf "\b|"
+    sleep 0.25
+    printf "\b-"
+    sleep 0.25
+  done
+  printf "\n"
+  pactl set-default-sink "$(pactl list sinks | grep "Name: bluez" | awk '{print $2}')"
+}
+
+btt() {
   sudo rfkill block bluetooth
   sleep 0.5
   sudo rfkill unblock bluetooth
@@ -156,14 +176,17 @@ bt() {
   echo "power on" | bluetoothctl
   sleep 0.2
   echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
-  sleep 0.5
+  sleep 1.5
+  echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
   echo -n "waiting-"
   until pactl list sinks | grep "Name: bluez" -q; do
     printf "\b|"
     sleep 0.25
     printf "\b-"
     sleep 0.25
+    echo "connect ${ENV_PXC550_MAC}" | bluetoothctl
   done
+  printf "\n"
   # if power on yields 'Error.Busy'
   # sudo rfkill unblock all
   # rfkill block bluetooth
