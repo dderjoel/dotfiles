@@ -132,6 +132,9 @@ alias play="ansible-playbook"
 # always use monday as first dow
 alias cal="cal -m -3"
 
+alias mupdf=zathura
+alias evince=zathura
+
 #npm aliases
 alias b='npm run bump'
 alias s='npm start'
