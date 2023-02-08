@@ -19,7 +19,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias sn="shutdown now"
 
-#git aliases
+# git aliases
 alias gs="git status"
 alias gd="git diff"
 alias gp="git push"
@@ -30,7 +30,7 @@ clc() {
   echo "UTC       $(TZ=UTC/UTC date "${fmt}")"
   echo "EST       $(TZ=EST date "${fmt}")"
   echo "Taipei    $(TZ=Asia/Taipei date "${fmt}")"
-  echo "\e[0;32mBerlin \e[0m   $(TZ=Europe/Berlin date "${fmt}")"
+  echo -e "\e[0;32mBerlin \e[0m   $(TZ=Europe/Berlin date "${fmt}")"
   echo "Adelaide  $(TZ=Australia/Adelaide date "${fmt}")"
   echo "MIT       $(TZ=US/Eastern date "${fmt}")"
 }
