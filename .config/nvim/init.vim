@@ -303,13 +303,6 @@ aug end
 " C
 aug c_macros
     au!
-    function! SwitchSourceHeader()
-        "update!
-        if (expand ("%:e") == "c")
-            find %:t:r.h
-        else
-            find %:t:r.c
-        endif
-    endfunction
-    au FileType c,cpp nnoremap <Space>s :call SwitchSourceHeader()<CR>
+    au FileType c,cpp nnoremap <Space>s :CocCommand clangd.switchSourceHeader<CR>
+    au FileType c,cpp nnoremap <Space>S :CocCommand clangd.switchSourceHeader vsplit<CR>
 aug end
