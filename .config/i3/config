@@ -21,7 +21,7 @@ exec_always --no-startup-id ~/.fehbg
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 exec_always --no-startup-id ~/.config/i3/i3-renameworkspaces/i3-renameworkspaces.pl -c ~/.config/i3/i3-renameworkspaces/config
 
