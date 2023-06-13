@@ -10,6 +10,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-surround'
 
+" add headers for C files
+Plug 'drmikehenry/vim-headerguard'
+
 " completion / linting / tooling for TS / C / well basically all langs...
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 
