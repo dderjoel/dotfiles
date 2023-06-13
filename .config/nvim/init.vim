@@ -48,6 +48,10 @@ Plug 'jreybert/vimagit'
 
 "coq
 Plug 'whonore/Coqtail'
+
+" coersion (crs: fooBar -> foo_bar)
+Plug 'tpope/vim-abolish'
+
 call plug#end()
 
 
