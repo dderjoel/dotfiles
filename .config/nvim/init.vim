@@ -257,6 +257,8 @@ aug gyp_ft_detection
 aug end
 "set flavor for vimtex, see :help vimtex-tex-flavor
 let g:tex_flavor = "latex"
+unlet! g:tex_fold_enabled  " just to be sure to disable default folds
+let g:vimtex_fold_enabled = 1 " enable  vimtex folds
 
 " set filetype for asm files
 aug asm_ft_detection
