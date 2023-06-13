@@ -15,7 +15,7 @@ flock -x -n 9 || exit      # grab that lock, or exit the script early
 # export XAUTHORITY=/home/joel/.XAUTHORITY
 
 date >>~/dotfiles/screenlayout/invoked.log
-echo "sleeping"
+echo -n "sleeping..."
 sleep .5
 echo "working"
 
