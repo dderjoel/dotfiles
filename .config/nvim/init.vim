@@ -71,12 +71,14 @@ colo gruvbox
 set background=dark
 
 "configure git gutter (colors)
-set signcolumn=no
+set signcolumn=yes
 highlight GitGutterAddLineNr          guifg=#009900 guibg=#325432 ctermfg=2
 highlight GitGutterChangeLineNr       guifg=#bbbb00 guibg=#68684b ctermfg=3
 highlight GitGutterDeleteLineNr       guifg=#ff2222 guibg=#e9b0b0 ctermfg=1
 highlight GitGutterChangeDeleteLineNr guifg=#bb5555 guibg=#332222 ctermfg=1
 
+" highlight current line
+set cursorline
 
 "open Magit with M
 nmap M :Magit<CR>
