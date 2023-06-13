@@ -306,3 +306,8 @@ aug c_macros
     au FileType c,cpp nnoremap <Space>s :CocCommand clangd.switchSourceHeader<CR>
     au FileType c,cpp nnoremap <Space>S :CocCommand clangd.switchSourceHeader vsplit<CR>
 aug end
+
+" highlight any non ascii char
+highlight nonascii guibg=Green ctermbg=1 term=standout
+au BufReadPost * syntax match nonascii "[^\u0000-\u007F]"
+
