@@ -133,7 +133,6 @@ alias play="ansible-playbook"
 alias cal="cal -m -3"
 
 alias mupdf=zathura
-alias evince=zathura
 
 #npm aliases
 alias b='npm run bump'
