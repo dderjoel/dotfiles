@@ -77,7 +77,8 @@ highlight GitGutterChangeLineNr       guifg=#bbbb00 guibg=#68684b ctermfg=3
 highlight GitGutterDeleteLineNr       guifg=#ff2222 guibg=#e9b0b0 ctermfg=1
 highlight GitGutterChangeDeleteLineNr guifg=#bb5555 guibg=#332222 ctermfg=1
 
-"Magit
+
+"open Magit with M
 nmap M :Magit<CR>
 
 let g:gitgutter_highlight_linenrs=1
