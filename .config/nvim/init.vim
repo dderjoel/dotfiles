@@ -187,8 +187,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 "make
 nmap <F5> :make<CR><CR>
 
-" Highlight symbol under cursor on CursorHold after .8sec
-set updatetime=800
+" Highlight symbol under cursor on CursorHold after .5sec
+set updatetime=500
 autocmd CursorHold * silent call CocActionAsync('highlight')
 "Symbol rename
 nmap <F2> <Plug>(coc-rename)
