@@ -38,7 +38,7 @@ CASE_SENSITIVE="true"
 # enable command auto-correction.
 #ENABLE_CORRECTION="true"
 # then set the LScolors
-eval $(dircolors ~/dotfiles/dircolors.256dark)
+eval $(dircolors ~/dotfiles/dircolors)
 
 # display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -76,5 +76,4 @@ bindkey '^R' history-incremental-search-backward
 if [ -f /etc/bash.command-not-found ]; then
         . /etc/bash.command-not-found
 fi
-
 

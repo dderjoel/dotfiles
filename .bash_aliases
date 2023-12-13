@@ -205,3 +205,6 @@ export I
 pil() {
   ssh pil ./fix_exportfs.sh
 }
+alias day="~/dotfiles/themeswitch.sh day"
+alias night="~/dotfiles/themeswitch.sh night"
+alias ni="~/dotfiles/themeswitch.sh night"
