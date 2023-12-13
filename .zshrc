@@ -7,6 +7,18 @@ setopt autocd extendedglob
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
+# keyboard layout: use as a base the intl-edition of us-querty
+# map the caps button to the escape key
+# map ALT+oua to german umlauts
+# direct err to null to get rid of warnings of missing keycodes
+xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
+# Check if Caps Lock is on, and if it is, use xdotool to disable it
+test -n "$DISPLAY" && xset q | grep -q Caps\ Lock:\ \ \ on && xdotool key Caps_Lock
+# set the typematic delay
+# xset r rate _delay_ _rate_
+test -n "$DISPLAY" && xset r rate 140 80
+
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/joel/.zshrc'
 autoload -Uz compinit
@@ -65,14 +77,4 @@ if [ -f /etc/bash.command-not-found ]; then
         . /etc/bash.command-not-found
 fi
 
-# keyboard layout: use as a base the intl-edition of us-querty
-# map the caps button to the escape key
-# map ALT+oua to german umlauts
-# direct err to null to get rid of warnings of missing keycodes
-xkbcomp -xkb ~/.xkbmap_custom $DISPLAY 2>/dev/null
-# Check if Caps Lock is on, and if it is, use xdotool to disable it
-test -n "$DISPLAY" && xset q | grep -q Caps\ Lock:\ \ \ on && xdotool key Caps_Lock
-# set the typematic delay
-# xset r rate _delay_ _rate_
-test -n "$DISPLAY" && xset r rate 140 80
 
