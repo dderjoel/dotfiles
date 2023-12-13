@@ -194,6 +194,7 @@ bar {
 
 #initialize the mutt-wizard Sync... subsequent syncs are handled by cron, if the passphrase has been saved
 exec_always --no-startup-id mw -Y
+exec_always --no-startup-id nm-applet
 
 # initialize the lunch timer
 # exec_always --no-startup-id pkill -if 'screen -dm termdown' && rm -f ~/.cache/i3blocks_timetolunch && screen -dm termdown --no-figlet -s 11:57 -o ~/.cache/i3blocks_timetolunch
