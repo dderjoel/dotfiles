@@ -163,11 +163,10 @@ bindsym $mod+i resize shrink height 10 px or 10 ppt
 bindsym $mod+o resize grow height 10 px or 10 ppt
 bindsym $mod+p resize grow width 10 px or 10 ppt
 
-for_window [class="^.*"] border pixel 2
-
+for_window [class="^.*"] border pixel 3
 
 #initialize the mutt-wizard Sync... subsequent syncs are handled by cron, if the passphrase has been saved
-exec_always --no-startup-id mw -Y
+# exec_always --no-startup-id mw -Y
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id blueman-applet
 
