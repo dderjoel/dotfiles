@@ -8,6 +8,8 @@ i3themeFilename=theme.config
 dircolorDir=~/dotfiles/
 dircolorFilename=dircolors
 
+batConfigFile=~/.config/bat/config
+
 day() {
   #i3
   pushd ${i3themeDir}
@@ -28,6 +30,10 @@ day() {
   # GTK
   gsettings set org.gnome.desktop.interface gtk-theme "Raleigh"
   gsettings set org.gnome.desktop.wm.preferences theme "Raleigh"
+
+  # bat (cat replacement)
+  sed --in-place --expression 's/Solarized (dark)/Solarized (light)/g' "${batConfigFile}"
+
 }
 night() {
   #i3
@@ -46,8 +52,12 @@ night() {
   ln -s dircolors.256dark "${dircolorFilename}"
   popd
 
+  #GTK
   gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
   gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
+
+  # bat (cat replacement)
+  sed --in-place --expression 's/Solarized (light)/Solarized (dark)/g' "${batConfigFile}"
 }
 info() {
   echo "use with options 'day' or 'night'" >&2
