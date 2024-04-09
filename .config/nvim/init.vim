@@ -22,19 +22,17 @@ Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 "debuggger
 Plug 'puremourning/vimspector'
 
-" This is the backend for coc-vimtex
-Plug 'lervag/vimtex'
-
 " Shortcut for commenting a line
 Plug 'preservim/nerdcommenter'
+
+" html emmet
+Plug 'mattn/emmet-vim'
 
 Plug 'ctrlpvim/ctrlp.vim' "fuzzy find files
 
 "Themes
-Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 " this is for syntax highlighting
-Plug 'aklt/plantuml-syntax'
 Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.sh' }
 Plug 'mboughaba/i3config.vim'
 Plug 'ekalinin/Dockerfile.vim'
@@ -66,9 +64,12 @@ syntax on
 filetype plugin indent on
 
 "set color scheme
-set termguicolors
-colo gruvbox
-set background=dark
+runtime detect-colorchange.lua
+" set termguicolors
+" " load background setting form ./color.vim
+" " runtime color.vim
+" set background=dark
+" colorscheme solarized8
 
 "configure git gutter (colors)
 set signcolumn=yes
@@ -202,6 +203,7 @@ nmap <silent> KK <Plug>(coc-definition)
 "
 
 " vimspector
+let g:vimspector_base_dir="/home/joel/.vim/plugged/vimspector"
 "https://github.com/puremourning/vimspector#human-mode
 fun! GotoWindow(id)
   :call win_gotoid(a:id)
@@ -243,14 +245,8 @@ nmap <Leader>di <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
 xmap <Leader>di <Plug>VimspectorBalloonEval
 
-
-" Default to svg make
-aug pu_ft_detection
-    au!
-    " au BufRead *.pu let g:plantuml_executable_script = "plantuml -tsvg"
-    au BufRead *.pu let &l:makeprg=g:plantuml_executable_script . " -tsvg %"
-aug end
-
+" redefining leader key from c-y to \,
+let g:user_emmet_leader_key='\'
 
 aug gyp_ft_detection
     au!
@@ -259,8 +255,8 @@ aug gyp_ft_detection
 aug end
 "set flavor for vimtex, see :help vimtex-tex-flavor
 let g:tex_flavor = "latex"
-unlet! g:tex_fold_enabled  " just to be sure to disable default folds
-let g:vimtex_fold_enabled = 1 " enable  vimtex folds
+" unlet! g:tex_fold_enabled  " just to be sure to disable default folds
+" let g:vimtex_fold_enabled = 1 " enable  vimtex folds
 
 " set filetype for asm files
 aug asm_ft_detection
@@ -297,9 +293,9 @@ aug end
 " LaTeX
 aug tex_settings
     au!
-    au FileType tex g:vimtex_compiler_progname = "nvr"
-    au FileType tex :noremap <leader>e i\emph{<C-c>wea}<C-c>
     au FileType tex set tw=180
+    au FileType tex set spell
+    au FileType tex syntax spell toplevel
 aug end
 
 " C
@@ -312,4 +308,6 @@ aug end
 " highlight any non ascii char
 highlight nonascii guibg=Green ctermbg=1 term=standout
 au BufReadPost * syntax match nonascii "[^\u0000-\u007F]"
+
+map <leader><leader>x :w:source %
 
