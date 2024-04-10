@@ -25,6 +25,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Z (as cd)
+eval "$(zoxide init --cmd cd zsh)"
+
 # ZMV is a bulk rename tool
 autoload zmv
 
@@ -38,7 +41,7 @@ CASE_SENSITIVE="true"
 # enable command auto-correction.
 #ENABLE_CORRECTION="true"
 # then set the LScolors
-eval $(dircolors ~/dotfiles/dircolors)
+# eval $(dircolors ~/.config/dircolors.conf)
 
 # display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -53,7 +56,6 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins ~/.oh-my-zsh/custom/plugins/
 zstyle :omz:plugins:ssh-agent identities id_rsa bitbucket/id_rsa uoa/id_ed25519
 plugins=(
-  git
   ssh-agent
 )
 
@@ -76,4 +78,3 @@ bindkey '^R' history-incremental-search-backward
 if [ -f /etc/bash.command-not-found ]; then
         . /etc/bash.command-not-found
 fi
-
