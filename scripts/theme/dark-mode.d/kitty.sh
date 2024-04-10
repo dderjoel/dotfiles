@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-kitty +kitten themes --reload-in=all "Solarized Dark"
+kitty +kitten themes --reload-in=all "Gruvbox Dark"

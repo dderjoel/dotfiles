@@ -22,4 +22,4 @@ watch_file(colorFile)
 reload()
 
 vim.opt.termguicolors = true
-vim.cmd("colorscheme solarized8")
+vim.cmd("colorscheme gruvbox")

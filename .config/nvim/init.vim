@@ -31,7 +31,7 @@ Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim' "fuzzy find files
 
 "Themes
-Plug 'lifepillar/vim-solarized8'
+Plug 'morhetz/gruvbox'
 " this is for syntax highlighting
 Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.sh' }
 Plug 'mboughaba/i3config.vim'
