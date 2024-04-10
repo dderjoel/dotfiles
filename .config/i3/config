@@ -43,13 +43,18 @@ bindsym $mod+Shift+q kill
 # take a screenshot
 bindsym Print exec scrot
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu 'rofi -dmenu -i'
-bindsym $mod+Shift+d exec --no-startup-id ~/.config/i3/open_empty_workspace.sh "i3-dmenu-desktop --dmenu 'rofi -show run'"
+# We're using the entry-types twice to show the name (eg. GNU Image
+# Manipulation Program) and the command (eg. 'gimp-2.1'), and --show-duplicates
+# in order to actually show both of them although they come from the same
+# .desktop file. We then use as i3-dmenus-desktop's selection tool (i.e. its
+# --demnu option) rofi. We configure rofi to be a drop in replacement to demenu
+# (ie. its -demnu switch) which I believe will make the application run. Also,
+# we pass -i to rofi, such that it starts in case-insensitive matching mode. 
+bindsym $mod+d exec --no-startup-id                                             i3-dmenu-desktop --entry-type=name --entry-type=command --show-duplicates --dmenu 'rofi -dmenu -i'
+bindsym $mod+Shift+d exec --no-startup-id ~/.config/i3/open_empty_workspace.sh "i3-dmenu-desktop --entry-type=name --entry-type=command --show-duplicates --dmenu 'rofi -dmenu -i'"
 
 # change focus
 bindsym $mod+h focus left
