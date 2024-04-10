@@ -4,13 +4,9 @@ alias vi=vim
 alias vim=nvim
 
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 
-alias ls='ls --color=auto'
-alias l="ll"
+alias ls='ls --hyperlink=auto --color=auto'
 alias ll='ls -alF'
-alias la='ls -A'
 alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -77,12 +73,12 @@ upd() {
     git pull 2>&1 | grep --silent 'up to date'
     if [[ $? -eq 1 ]]; then
       if [[ $(makepkg --syncdeps --install --clean --noconfirm >/dev/null 2>/dev/null) ]]; then
-        echo " \e[0;31m update failed \uf00d\e[0m"
+        printf " \e[0;31m update failed \uf00d\e[0m\n"
       else
-        echo " \e[0;32m updated \uf00c\e[0m"
+        printf " \e[0;32m updated \uf00c\e[0m\n"
       fi
     else
-      echo " \e[0;32m already up to date \uf00c\e[0m"
+      printf " \e[0;32m already up to date \uf00c\e[0m\n"
     fi
     #clean untracked files, i.e. binaries
     git clean -f
@@ -102,25 +98,19 @@ alias wd="sh ~/dotfiles/screenlayout/default.screenlayout.sh"
 alias ws="sh ~/dotfiles/screenlayout/single.screenlayout.sh"
 alias wp="sh ~/dotfiles/screenlayout/present.screenlayout.sh"
 
-#hosts
-alias vh="sudo vim /etc/hosts"
-
 #default catting out via bat for beautiful syntax-highlighting/pager/linenumber
 alias cat="bat"
 
+#kitty
+alias icat="kitten icat"
+alias mg="kitty +kitten hyperlinked_grep --smart-case"
+
 #fun
 alias wtf="man"
-alias fucking="sudo "
 alias please='sudo $(fc -ln -1) '
 
 # this is for a terminal countdown timer.
 alias td="termdown -s "
-# will put the remaining time in this tile, which is read by i3blocks
-tdd() {
-  file=~/.cache/i3blocks_timetonextmeeting
-  test -f ${file} && rm ${file}
-  screen -dm termdown --quit-after 2 --no-figlet -s "${1}" -o "${file}"
-}
 
 #alias for daily stand up
 alias lunch="termdown -s 11:57 && notify-send 'LUNCH' 'LUNCH' -i ~/dotfiles/Pictures/icons/hamburger.png "
@@ -136,11 +126,7 @@ alias cal="cal -m -3"
 alias mupdf=zathura
 
 #npm aliases
-alias b='npm run bump'
 alias s='npm start'
-alias o='npm outdated'
-alias u='npm update'
-alias uu='ncu -u && npm i && npm update'
 
 alias sm='neomutt phd -s Statusupdate\ \#$(expr $(grep -r Statusupdate ~/.local/share/mail/uoa/Sent\ Items/cur | cut -d"#" -f2 | sort -g -u | tail -n1) + 1)'
 
@@ -202,9 +188,7 @@ at() {
 }
 I=" --inspect-brk=12345 "
 export I
-pil() {
-  ssh pil ./fix_exportfs.sh
-}
+
 unvpn() {
   pushd /usr/local/lib/gp-saml-gui || exit 1
   deactivate
