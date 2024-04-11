@@ -1,3 +1,6 @@
 [submodule ".config/i3/i3blocks/i3blocks-contrib"]
 	path = .config/i3/i3blocks/i3blocks-contrib
 	url = https://github.com/dderjoel/i3blocks-contrib
+[submodule ".config/kitty/kitty_grab"]
+	path = .config/kitty/kitty_grab
+	url = https://github.com/yurikhan/kitty_grab.git
