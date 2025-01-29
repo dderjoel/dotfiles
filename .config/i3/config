@@ -196,8 +196,8 @@ exec_always --no-startup-id dunst
 # exec_always --no-startup-id pkill -if 'screen -dm termdown' && rm -f ~/.cache/i3blocks_timetolunch && screen -dm termdown --no-figlet -s 11:57 -o ~/.cache/i3blocks_timetolunch
 
 #Program shortcuts
-bindsym $mod+m exec EDITOR=/usr/bin/vim $terminal -class neomutt neomutt
 bindsym $mod+s exec --no-startup-id $terminal --class spotify spotify_player
+bindsym $mod+m exec EDITOR=/usr/bin/vim $terminal --class neomutt neomutt
 bindsym $mod+b exec --no-startup-id brave
 bindsym $mod+Shift+y exec --no-startup-id pavucontrol
-bindsym $mod+y exec --no-startup-id $terminal ncpamixer
+bindsym $mod+y exec --no-startup-id $terminal --class ncpamixer ncpamixer
