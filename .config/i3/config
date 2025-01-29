@@ -59,8 +59,9 @@ bindsym Print exec scrot
 # --demnu option) rofi. We configure rofi to be a drop in replacement to demenu
 # (ie. its -demnu switch) which I believe will make the application run. Also,
 # we pass -i to rofi, such that it starts in case-insensitive matching mode. 
-bindsym $mod+d exec --no-startup-id                                             i3-dmenu-desktop --entry-type=name --entry-type=command --show-duplicates --dmenu 'rofi -dmenu -i'
-bindsym $mod+Shift+d exec --no-startup-id ~/.config/i3/open_empty_workspace.sh "i3-dmenu-desktop --entry-type=name --entry-type=command --show-duplicates --dmenu 'rofi -dmenu -i'"
+# The grep is to avoid Qt Designer to pop up
+bindsym $mod+d exec --no-startup-id                                             i3-dmenu-desktop --entry-type=name --entry-type=command --show-duplicates --dmenu 'grep -v Qt | rofi -dmenu -i'
+bindsym $mod+Shift+d exec --no-startup-id ~/.config/i3/open_empty_workspace.sh 'i3-dmenu-desktop --entry-type=name --entry-type=command --show-duplicates --dmenu \'grep -v Qt | rofi -dmenu -i\''
 
 # change focus
 bindsym $mod+h focus left
