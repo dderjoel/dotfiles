@@ -56,6 +56,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins ~/.oh-my-zsh/custom/plugins/
 zstyle :omz:plugins:ssh-agent identities id_rsa bitbucket/id_rsa uoa/id_ed25519
 plugins=(
+  gitfast
   ssh-agent
 )
 
