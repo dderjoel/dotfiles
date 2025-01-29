@@ -1,16 +1,18 @@
 {
   "classes": {
     "firefox": "Firefox ",
-    "firefoxdeveloperedition": "Devfox <span foreground='#0076e6'></span>",
+    "firefox-developer-edition": "Devfox <span foreground='#0076e6'></span>",
     "brave-browser": "<span foreground='#1EBBEE'> </span> Brave",
-    "kitty": "<span foreground='white'></span>",
+    "kitty": "<span foreground='red'></span>",
     "chromium": "<span foreground='Green'>Chrome </span>",
     "spotify": "<span background='#1DB054' foreground='white'> Spotify</span>",
     "zathura": "<span background='#AAAAAA' foreground='#CC3F3F'> Zathura</span>",
     "code": "<span foreground='lime' background='darkblue'>VS Code </span>",
+    "jetbrains-idea-ce": "IntelliJ <span foreground='#0076e6'></span>",
     "signal beta": "<span foreground='white' background='#3333DD'> Signal</span>",
     "neomutt": "<span foreground='white' background='#5555FF'> Mail</span>",
-    "pavucontrol": "<span foreground='lime' background='darkblue'> Ctl</span>"
+    "pavucontrol": "<span foreground='lime' background='darkblue'> Ctl</span>",
+    "ncpamixer": "<span foreground='lime' background='darkblue'> Ctl</span>"
   },
   "titles": {
     "nvim": "<span foreground='#019833'></span>",
