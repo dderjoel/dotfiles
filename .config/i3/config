@@ -190,7 +190,7 @@ bindsym XF86Favorites exec --no-startup-id darkman toggle
 #displays the notify-sends
 exec_always --no-startup-id dunst
 #add compositor
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+# exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # initialize the lunch timer
 # exec_always --no-startup-id pkill -if 'screen -dm termdown' && rm -f ~/.cache/i3blocks_timetolunch && screen -dm termdown --no-figlet -s 11:57 -o ~/.cache/i3blocks_timetolunch
