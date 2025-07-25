@@ -60,8 +60,8 @@ bindsym Print exec scrot
 # (ie. its -demnu switch) which I believe will make the application run. Also,
 # we pass -i to rofi, such that it starts in case-insensitive matching mode. 
 # The grep is to avoid Qt Designer to pop up
-bindsym $mod+d exec --no-startup-id                                             i3-dmenu-desktop --entry-type=name --entry-type=command --show-duplicates --dmenu 'grep -v Qt | rofi -dmenu -i'
-bindsym $mod+Shift+d exec --no-startup-id ~/.config/i3/open_empty_workspace.sh 'i3-dmenu-desktop --entry-type=name --entry-type=command --show-duplicates --dmenu \'grep -v Qt | rofi -dmenu -i\''
+bindsym $mod+d exec --no-startup-id                                            ~/.config/i3/open_rofi_dmenu.sh
+bindsym $mod+Shift+d exec --no-startup-id ~/.config/i3/open_empty_workspace.sh ~/.config/i3/open_rofi_dmenu.sh
 
 # change focus
 bindsym $mod+h focus left

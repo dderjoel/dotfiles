@@ -14,5 +14,5 @@ for candidate in $(seq 1 10); do
 done
 
 # if there is some parameter, execute that parameter
-[[ ${#} -gt 0 && "${1}" != "--move" ]] && $1
+[[ ${#} -gt 0 && "${1}" != "--move" ]] && exec "$1"
 exit 0
