@@ -44,9 +44,6 @@ Plug 'airblade/vim-gitgutter'
 " enables git commit interface
 Plug 'jreybert/vimagit'
 
-"coq
-Plug 'whonore/Coqtail'
-
 " coersion (crs: fooBar -> foo_bar)
 Plug 'tpope/vim-abolish'
 

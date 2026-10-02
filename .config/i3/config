@@ -1,10 +1,10 @@
 set $mod Mod4
-set $terminal kitty
+set $terminal alacritty
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #check out `pango-list` to know what to write here.
-font pango:Font Awesome 5 Free, Font Awesome 5 Brands, FuraCode Nerd Font weight=450, SFNS Display 11 
+font pango:Font Awesome, Fira Sans,MesloLGS Nerd Font
 
 include ./theme.config
 
@@ -65,34 +65,29 @@ bindsym $mod+Shift+d exec --no-startup-id ~/.config/i3/open_empty_workspace.sh ~
 
 # change focus
 bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
+bindsym $mod+j focus down
 bindsym $mod+Down focus down
+bindsym $mod+k focus up
 bindsym $mod+Up focus up
+bindsym $mod+l focus right
 bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
+bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+j move down
+bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+k move up
+bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+l move right
+bindsym $mod+Shift+Right move right
 
 # move focused window
 bindsym $mod+Mod1+k move workspace to output up
 bindsym $mod+Mod1+j move workspace to output down
 bindsym $mod+Mod1+h move workspace to output left
 bindsym $mod+Mod1+l move workspace to output right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
 
 # split in vertical/horizontal orientation
 bindsym $mod+Shift+v split h
@@ -184,21 +179,26 @@ exec_always --no-startup-id blueman-applet
 
 # for theming and light/dark
 exec_always --no-startup-id xsettingsd
-exec_always --no-startup-id XDG_DATA_DIRS=/home/joel/dotfiles/scripts/theme darkman run
+exec_always --no-startup-id XDG_DATA_DIRS=/home/user/dotfiles/scripts/theme darkman run
 # toggle mode when pressing that favorite-stark hotkey thingy on my thinkpad
 bindsym XF86Favorites exec --no-startup-id darkman toggle
 
 #displays the notify-sends
 exec_always --no-startup-id dunst
 #add compositor
-# exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec_always --no-startup-id redshift
 
 # initialize the lunch timer
 # exec_always --no-startup-id pkill -if 'screen -dm termdown' && rm -f ~/.cache/i3blocks_timetolunch && screen -dm termdown --no-figlet -s 11:57 -o ~/.cache/i3blocks_timetolunch
 
 #Program shortcuts
-bindsym $mod+s exec --no-startup-id $terminal --class spotify spotify_player
-bindsym $mod+m exec EDITOR=/usr/bin/vim $terminal --class neomutt neomutt
-bindsym $mod+b exec --no-startup-id brave
 bindsym $mod+Shift+y exec --no-startup-id pavucontrol
 bindsym $mod+y exec --no-startup-id $terminal --class ncpamixer ncpamixer
+
+# for the calendar popup from i3blocks-contrib/calendar
+for_window [class="Yad"] floating enable
+
+#speech to text
+exec --no-startup-id sotto daemon
+bindsym --release XF86AudioMedia exec pkill -USR1 sotto

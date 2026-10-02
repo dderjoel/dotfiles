@@ -19,10 +19,12 @@ test -n "$DISPLAY" && xset q | grep -q Caps\ Lock:\ \ \ on && xdotool key Caps_L
 test -n "$DISPLAY" && xset r rate 140 80
 
 
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/joel/.zshrc'
+# compinstall, setting directory for its completion cache (defaults to ~/.zcompdump-...)
+export ZSH_COMPDUMP=${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcompdump
+mkdir -p $ZSH_COMPDUMP:h
+zstyle :compinstall filename '/home/user/.zshrc'
 autoload -Uz compinit
-compinit
+compinit -d ${ZSH_COMPDUMP}
 # End of lines added by compinstall
 
 # Z (as cd)
@@ -54,7 +56,7 @@ COMPLETION_WAITING_DOTS="true"
 # plugins to load
 # Standard plugins ~/.oh-my-zsh/plugins/*
 # Custom plugins ~/.oh-my-zsh/custom/plugins/
-zstyle :omz:plugins:ssh-agent identities id_rsa bitbucket/id_rsa uoa/id_ed25519
+zstyle :omz:plugins:ssh-agent identities id_rsa home_id_ed25519
 plugins=(
   gitfast
   ssh-agent
@@ -75,7 +77,4 @@ set -o vi
 #set the ^R for recursive search althouth we have the vi-mode in the shell
 bindkey '^R' history-incremental-search-backward
 
-# add bash-insulter
-if [ -f /etc/bash.command-not-found ]; then
-        . /etc/bash.command-not-found
-fi
+export PROMT_COMMAND="history -a; $PROMT_COMMAND"

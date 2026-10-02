@@ -10,9 +10,6 @@
     "typescript",
     "vue"
   ],
-  "vetur.experimental.templateInterpolationService": true,
-  "vetur.useWorkspaceDependencies": true,
-  "vetur.format.defaultFormatter.html": "prettier",
   "explorer.icon.enableNerdfont": true,
   "explorer.file.hiddenRules": {
     "extensions": [
@@ -40,16 +37,15 @@
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
-  "clangd.path": "~/dotfiles/.config/coc/extensions/coc-clangd-data/install/15.0.6/clangd_15.0.6/bin/clangd",
-  "clangd.arguments": ["-j=3"],
   "diagnostic-languageserver.filetypes": {
-    "sh": "shellcheck"
+    "sh": "shellcheck",
+    "bash": "shellcheck"
   },
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
       "args": ["start"],
-      "filetypes": ["sh"],
+      "filetypes": ["sh", "bash"],
       "ignoredRootPaths": ["~"]
     }
   }

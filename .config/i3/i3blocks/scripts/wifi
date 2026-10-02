@@ -1,47 +1,28 @@
 #!/bin/bash
-# Copyright (C) 2014 Alexander Keller <github@nycroth.com>
 
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+wifi=$(nmcli --get-values IN-USE,SIGNAL,SSID device wifi 2>/dev/null |
+    awk -F':' '$1 == "*" { print $2 "|" $3; exit }')
 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
+if [ -n "$wifi" ]; then
+    signal=${wifi%%|*}
+    ssid=${wifi#*|}
 
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    printf '%s%% %s\n' "$signal" "$ssid" #full text
+    printf '%s%%\n' "$signal" #short text
 
-#------------------------------------------------------------------------
-
-INTERFACE="${BLOCK_INSTANCE:-wlp0s20f3}"
-
-#------------------------------------------------------------------------
-
-# As per #36 -- It is transparent: e.g. if the machine has no battery or wireless
-# connection (think desktop), the corresponding block should not be displayed.
-[[ ! -d /sys/class/net/${INTERFACE}/wireless ]] ||
-    [[ "$(cat /sys/class/net/$INTERFACE/operstate)" = 'down' ]] && exit
-
-#------------------------------------------------------------------------
-
-QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
-SSID=$(nmcli | grep $INTERFACE: | awk -F'connected to' '{print $2}' )
-
-#------------------------------------------------------------------------
-
-printf " %03d%% %s\n" $QUALITY "$SSID" # full text
-printf " %03d\n" $QUALITY # short ext
-
-# color
-if [[ $QUALITY -ge 80 ]]; then
-    echo "#00FF00"
-elif [[ $QUALITY -lt 80 ]]; then
-    echo "#FFF600"
-elif [[ $QUALITY -lt 60 ]]; then
-    echo "#FFAE00"
-elif [[ $QUALITY -lt 40 ]]; then
-    echo "#FF0000"
+     # Choose contrasting foreground/background colors.
+    if [ "$signal" -ge 70 ]; then
+        foreground="#ffffff"
+        background="#267326"   # dark green
+    elif [ "$signal" -ge 40 ]; then
+        foreground="#000000"
+        background="#e6b800"   # yellow/gold
+    else
+        foreground="#ffffff"
+        background="#b30000"   # dark red
+    fi
+    printf '%s\n%s\n' "${foreground}" "${background}"
+else
+    printf '--\n'
 fi
+
